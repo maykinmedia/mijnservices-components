@@ -1,5 +1,7 @@
 # mijnservices-components
 
+[![Storybook](https://img.shields.io/badge/storybook-live-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components)
+
 Work in Progress: MijnServices web components based on the NL Design System architecture.
 This project is free and open-source software licensed under the European Union Public License (EUPL) v1.2.
 
@@ -10,7 +12,7 @@ This is a pnpm monorepo. Each component lives in its own package under `componen
 ```
 mijnservices-components/
 ├── components/
-│   └── card/          → @mijnservices/plan-card
+│   └── plan-card/     → @mijnservices/plan-card
 ├── .storybook/        → Storybook configuration
 ├── pnpm-workspace.yaml
 └── package.json
@@ -20,14 +22,6 @@ mijnservices-components/
 
 ```bash
 pnpm install
-```
-
-## Storybook
-
-View all components in Storybook:
-
-```bash
-pnpm storybook
 ```
 
 ## Building
@@ -50,7 +44,19 @@ Each component builds to its own `dist/` folder with:
 - `dist/plan-card.react.js` — the React wrapper
 - `dist/plan-card.css` — the CSS, separately importable without the web component
 
+## Storybook
+
+View all components live at [maykinmedia.github.io/mijnservices-components](https://maykinmedia.github.io/mijnservices-components).
+
+Run Storybook locally:
+
+```bash
+pnpm storybook
+```
+
 ## Consuming components
+
+> Publishing to npm is planned. See [ROADMAP.md](./ROADMAP.md).
 
 ### Web component
 
@@ -59,13 +65,15 @@ import "@mijnservices/plan-card";
 ```
 
 ```html
-
+<mijnservices-plan-card heading="Plan naam" domain="Domein naam" href="/link"></mijnservices-plan-card>
 ```
 
 ### React
 
 ```tsx
-import { Card } from "@mijnservices/plan-card/react";
+import { PlanCard } from "@mijnservices/plan-card/react";
+
+<PlanCard heading="Plan naam" domain="Domein naam" href="/link" />;
 ```
 
 ### CSS only
@@ -77,7 +85,10 @@ import "@mijnservices/plan-card/css";
 ```
 
 ```html
-Domein naam Plan naam
+<div class="mijnservices-plan-card">
+  <p class="mijnservices-plan-card__domain">Domein naam</p>
+  <p class="mijnservices-plan-card__heading">Plan naam</p>
+</div>
 ```
 
 ## Architecture
@@ -88,10 +99,7 @@ Components are built with [Lit](https://lit.dev), a lightweight library for web 
 
 ### Shadow DOM
 
-All components use Shadow DOM (the Lit default). This means component styles
-are fully isolated and cannot be overridden with external CSS selectors.
-Theming is done exclusively via CSS custom properties (design tokens),
-for example `--mijnservices-plan-card-background-color`.
+All components use Shadow DOM (the Lit default). This means component styles are fully isolated and cannot be overridden with external CSS selectors. Theming is done exclusively via CSS custom properties (design tokens), for example `--mijnservices-plan-card-background-color`.
 
 ### React wrapper
 
@@ -123,4 +131,6 @@ Each component has its own `vite.config.ts` for building. Vite is a build tool �
 
 ## Contribute
 
-Use `pnpm format` to run prettier before committing.
+Use `pnpm format` to run Prettier before committing.
+
+Note: creating a Git tag will trigger the GitHub Action to publish to npm.
