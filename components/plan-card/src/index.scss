@@ -4,9 +4,20 @@
   @include mijnservices-plan-card;
 }
 
-.mijnservices-plan-card__action {
-  @include mijnservices-plan-card__action;
-  @include mijnservices-plan-card__action--overlay;
+.mijnservices-plan-card--plain {
+  @include mijnservices-plan-card--plain;
+}
+
+.mijnservices-plan-card__clip {
+  @include mijnservices-plan-card__clip;
+}
+
+.mijnservices-plan-card__background {
+  @include mijnservices-plan-card__background;
+}
+
+.mijnservices-plan-card__inner {
+  @include mijnservices-plan-card__inner;
 }
 
 .mijnservices-plan-card__domain {
@@ -23,6 +34,10 @@
 
 .mijnservices-plan-card__date {
   @include mijnservices-plan-card__date;
+}
+
+.mijnservices-plan-card__action {
+  @include mijnservices-plan-card__action;
 }
 
 .mijnservices-plan-card__arrow {

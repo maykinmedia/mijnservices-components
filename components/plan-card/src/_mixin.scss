@@ -1,57 +1,121 @@
 @mixin mijnservices-plan-card {
+  background: var(--mijnservices-plan-card-background-color, #e8f4fd);
+  border-radius: var(--mijnservices-plan-card-border-radius, 4px);
+  overflow: visible;
+  padding-block-start: var(--mijnservices-plan-card-clip-block-start, 10px);
+  padding-block-end: var(--mijnservices-plan-card-inner-margin, 10px);
+  padding-inline: var(--mijnservices-plan-card-inner-margin, 10px);
   position: relative;
-  background-color: var(--mijnservices-plan-card-background-color, #ddeeff);
-  border-color: var(--mijnservices-plan-card-border-color, #b3d4f0);
-  border-style: solid;
-  border-width: var(--mijnservices-plan-card-border-width, 1px);
-  border-radius: var(--mijnservices-plan-card-border-radius, 8px);
-  padding-block: var(--mijnservices-plan-card-padding-block, 1.5rem);
-  padding-inline: var(--mijnservices-plan-card-padding-inline, 1.5rem);
+  width: 100%;
 }
 
-@mixin mijnservices-plan-card__action {
-  color: var(--mijnservices-plan-card-action-color, #1a6eb4);
-  display: flex;
-  align-items: center;
-  margin-inline-start: auto;
-  text-decoration: none;
-}
+@mixin mijnservices-plan-card__clip {
+  background: var(--mijnservices-plan-card-clip-color, #c7e7fa);
+  block-size: 20px;
+  border-radius: 0 0 2px 2px; /* TODO: make separate design tokens */
+  inline-size: 180px; /* TODO: should the clip size be responsive or stay the same? */
+  inset-block-start: calc(-1 * var(--mijnservices-plan-card-clip-block-start, 0px));
+  inset-inline-start: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 2;
 
-@mixin mijnservices-plan-card__action--overlay {
-  &::before {
+  &::after {
+    background: var(--mijnservices-plan-card-clip-color, #c7e7fa);
+    block-size: 10px; /* TODO: make design token */
+    border-radius: 3px 3px 0 0; /* TODO: make separate design tokens */
     content: "";
+    inline-size: 60px; /* TODO: make design token */
+    inset-block-start: -10px;
+    inset-inline-start: 50%;
     position: absolute;
-    inset: 0;
+    transform: translateX(-50%);
   }
 }
 
+@mixin mijnservices-plan-card__background {
+  background: var(--mijnservices-plan-card-background-color, #e8f4fd);
+  border-radius: var(--mijnservices-plan-card-border-radius, 4px);
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+@mixin mijnservices-plan-card__inner {
+  background: var(--mijnservices-plan-card-inner-background-color, #f4fafe);
+  border-radius: calc(var(--mijnservices-plan-card-border-radius, 4px) - 2px); /* TODO: make separate design tokens */
+  display: flex;
+  flex-direction: column;
+  gap: var(--mijnservices-plan-card-gap, 36px);
+  padding-block: var(--mijnservices-plan-card-padding-block, 24px);
+  padding-inline: var(--mijnservices-plan-card-padding-inline, 24px);
+  position: relative;
+  z-index: 1;
+}
+
 @mixin mijnservices-plan-card__domain {
-  color: var(--mijnservices-plan-card-domain-color, #1a4a6e);
-  font-size: var(--mijnservices-plan-card-domain-font-size, 0.875rem);
+  color: var(--mijnservices-plan-card-domain-color, #001a40);
+  font-size: var(--mijnservices-plan-card-domain-font-size, 14px);
   font-weight: var(--mijnservices-plan-card-domain-font-weight, 400);
-  margin-block: 0;
+  line-height: 1.5;
+  margin: 0;
 }
 
 @mixin mijnservices-plan-card__heading {
-  color: var(--mijnservices-plan-card-heading-color, #0d2d4a);
-  font-size: var(--mijnservices-plan-card-heading-font-size, 1.25rem);
+  color: var(--mijnservices-plan-card-heading-color, #001a40);
+  font-size: var(--mijnservices-plan-card-heading-font-size, 20px);
   font-weight: var(--mijnservices-plan-card-heading-font-weight, 700);
-  margin-block: var(--mijnservices-plan-card-heading-margin-block, 0.25rem 0);
+  line-height: 1.25;
+  margin-block: 4px 0;
 }
 
 @mixin mijnservices-plan-card__footer {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-block-start: var(--mijnservices-plan-card-footer-margin-block-start, 2rem);
+  display: flex;
+  justify-content: flex-end;
+  margin-block-start: var(--mijnservices-plan-card-footer-margin-block-start, 0);
 }
 
 @mixin mijnservices-plan-card__date {
-  color: var(--mijnservices-plan-card-date-color, #1a4a6e);
-  font-size: var(--mijnservices-plan-card-date-font-size, 0.875rem);
+  color: var(--mijnservices-plan-card-date-color, #001a40);
+  font-size: var(--mijnservices-plan-card-date-font-size, 14px);
+  margin-inline-end: auto;
+}
+
+@mixin mijnservices-plan-card__action {
+  align-items: center;
+  color: var(--mijnservices-plan-card-action-color, #00568b);
+  display: flex;
+  margin-inline-start: auto;
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
 }
 
 @mixin mijnservices-plan-card__arrow {
   block-size: 1.5rem;
   inline-size: 1.5rem;
+}
+
+@mixin mijnservices-plan-card--plain {
+  background: white;
+  border-color: var(--mijnservices-plan-card-border-color, #000000);
+  border-style: solid;
+  border-width: var(--mijnservices-plan-card-border-width, 1px);
+
+  .mijnservices-plan-card__clip,
+  .mijnservices-plan-card__background {
+    display: none;
+  }
+
+  .mijnservices-plan-card__inner {
+    background: transparent;
+    border: none;
+    padding-block-start: var(--mijnservices-plan-card-clip-block-start, 10px);
+  }
 }

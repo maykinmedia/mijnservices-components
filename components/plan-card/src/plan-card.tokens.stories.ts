@@ -13,11 +13,16 @@ const tokensJson = JSON.stringify(
     mijnservices: {
       'plan-card': {
         'background-color': {},
+        'inner-background-color': {},
+        'clip-color': {},
         'border-color': {},
         'border-width': {},
         'border-radius': {},
         'padding-block': {},
         'padding-inline': {},
+        gap: {},
+        'inner-margin': {},
+        'clip-block-start': {},
         domain: {
           color: {},
           'font-size': {},
@@ -48,11 +53,16 @@ const tokensJson = JSON.stringify(
 const cssTemplate = `
 .your-theme {
   /* --mijnservices-plan-card-background-color: <color>; */
+  /* --mijnservices-plan-card-inner-background-color: <color>; */
+  /* --mijnservices-plan-card-clip-color: <color>; */
   /* --mijnservices-plan-card-border-color: <color>; */
   /* --mijnservices-plan-card-border-width: <length>; */
   /* --mijnservices-plan-card-border-radius: <length>; */
   /* --mijnservices-plan-card-padding-block: <length>; */
   /* --mijnservices-plan-card-padding-inline: <length>; */
+  /* --mijnservices-plan-card-gap: <length>; */
+  /* --mijnservices-plan-card-inner-margin: <length>; */
+  /* --mijnservices-plan-card-clip-block-start: <length>; */
   /* --mijnservices-plan-card-domain-color: <color>; */
   /* --mijnservices-plan-card-domain-font-size: <length>; */
   /* --mijnservices-plan-card-domain-font-weight: <number>; */
