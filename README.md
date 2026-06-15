@@ -133,4 +133,4 @@ Each component has its own `vite.config.ts` for building. Vite is a build tool â
 
 Use `pnpm format` to run Prettier before committing.
 
-Note: creating a Git tag will trigger the GitHub Action to publish to npm.
+Note: creating a Git tag for a specific component (e.g. `@mijnservices/plan-card@0.1.1`) will trigger the GitHub Action to publish that component to npm.
