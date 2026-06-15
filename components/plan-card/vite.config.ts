@@ -14,5 +14,5 @@ export default defineConfig({
       external: ['lit', /^lit\//, 'react', '@lit/react'],
     },
   },
-  plugins: [dts({ include: ['src'] })],
+  plugins: [dts({ include: ['src'], exclude: ['src/**/*.stories.*'] })],
 });
