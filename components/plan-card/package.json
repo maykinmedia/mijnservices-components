@@ -1,0 +1,31 @@
+{
+  "name": "@mijnservices/plan-card",
+  "version": "0.1.0",
+  "description": "Card component for plans in MijnServices, built on NL Design System architecture",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./react": "./dist/card.react.js",
+    "./css": "./dist/card.css"
+  },
+  "files": [
+    "dist",
+    "tokens.json"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2"
+  }
+}

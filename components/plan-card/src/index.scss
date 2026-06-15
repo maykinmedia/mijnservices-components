@@ -1,0 +1,30 @@
+@use "mixin" as *;
+
+.mijnservices-plan-card {
+  @include mijnservices-plan-card;
+}
+
+.mijnservices-plan-card__action {
+  @include mijnservices-plan-card__action;
+  @include mijnservices-plan-card__action--overlay;
+}
+
+.mijnservices-plan-card__domain {
+  @include mijnservices-plan-card__domain;
+}
+
+.mijnservices-plan-card__heading {
+  @include mijnservices-plan-card__heading;
+}
+
+.mijnservices-plan-card__footer {
+  @include mijnservices-plan-card__footer;
+}
+
+.mijnservices-plan-card__date {
+  @include mijnservices-plan-card__date;
+}
+
+.mijnservices-plan-card__arrow {
+  @include mijnservices-plan-card__arrow;
+}

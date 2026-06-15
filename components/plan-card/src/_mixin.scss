@@ -1,0 +1,57 @@
+@mixin mijnservices-plan-card {
+  position: relative;
+  background-color: var(--mijnservices-plan-card-background-color, #ddeeff);
+  border-color: var(--mijnservices-plan-card-border-color, #b3d4f0);
+  border-style: solid;
+  border-width: var(--mijnservices-plan-card-border-width, 1px);
+  border-radius: var(--mijnservices-plan-card-border-radius, 8px);
+  padding-block: var(--mijnservices-plan-card-padding-block, 1.5rem);
+  padding-inline: var(--mijnservices-plan-card-padding-inline, 1.5rem);
+}
+
+@mixin mijnservices-plan-card__action {
+  color: var(--mijnservices-plan-card-action-color, #1a6eb4);
+  display: flex;
+  align-items: center;
+  margin-inline-start: auto;
+  text-decoration: none;
+}
+
+@mixin mijnservices-plan-card__action--overlay {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+@mixin mijnservices-plan-card__domain {
+  color: var(--mijnservices-plan-card-domain-color, #1a4a6e);
+  font-size: var(--mijnservices-plan-card-domain-font-size, 0.875rem);
+  font-weight: var(--mijnservices-plan-card-domain-font-weight, 400);
+  margin-block: 0;
+}
+
+@mixin mijnservices-plan-card__heading {
+  color: var(--mijnservices-plan-card-heading-color, #0d2d4a);
+  font-size: var(--mijnservices-plan-card-heading-font-size, 1.25rem);
+  font-weight: var(--mijnservices-plan-card-heading-font-weight, 700);
+  margin-block: var(--mijnservices-plan-card-heading-margin-block, 0.25rem 0);
+}
+
+@mixin mijnservices-plan-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: var(--mijnservices-plan-card-footer-margin-block-start, 2rem);
+}
+
+@mixin mijnservices-plan-card__date {
+  color: var(--mijnservices-plan-card-date-color, #1a4a6e);
+  font-size: var(--mijnservices-plan-card-date-font-size, 0.875rem);
+}
+
+@mixin mijnservices-plan-card__arrow {
+  block-size: 1.5rem;
+  inline-size: 1.5rem;
+}
