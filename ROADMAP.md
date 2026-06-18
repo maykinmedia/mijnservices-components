@@ -37,3 +37,7 @@ components/
     ├── tsconfig.json
     └── vite.config.ts
 ```
+
+## Maintenance
+
+Let op 'npm audit fix', storybook updates, vite updates + bijwerken van de Dicussions op https://github.com/orgs/nl-design-system/discussions/categories/mijn-omgevingen

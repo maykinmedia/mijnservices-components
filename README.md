@@ -2,6 +2,8 @@
 
 [![Storybook](https://img.shields.io/badge/storybook-live-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components)
 
+[NPMJS →](https://www.npmjs.com/package/@mijnservices/plan-card)
+
 Work in Progress: MijnServices web components based on the NL Design System architecture.
 This project is free and open-source software licensed under the European Union Public License (EUPL) v1.2.
 
