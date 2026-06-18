@@ -14,11 +14,10 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@storybook/web-components": "^10.4.3",
-    "@storybook/web-components-vite": "^10.4.3",
+    "@storybook/web-components-vite": "^10.4.6",
     "lit": "^3.3.3",
     "prettier": "^3.8.4",
-    "storybook": "^10.4.3",
+    "storybook": "^10.4.6",
     "tslib": "^2.8.1",
     "typescript": "^5.4.0"
   }
