@@ -1,0 +1,52 @@
+---
+title: Introduction
+---
+
+# MijnServices Components
+
+This is the component library for MijnServices, built on the [NL Design System](https://nldesignsystem.nl) architecture.
+
+Components are published as web components and React wrappers to npm under the `@mijnservices` scope.
+Each component is fully themeable via CSS custom properties (design tokens).
+
+## Design
+
+The designs for MijnServices page patterns are maintained in Figma:
+
+[Open MijnServices Figma →](https://www.figma.com/design/RCHZdQClPESi6PRA2PWmew/MijnServices---Acato?node-id=2899-36626&p=f&t=c4oAWbpdO9eYnJZe-0)
+
+Designs for MijnGesprek:
+
+T.B.A.
+
+## Usage
+
+Install a component via npm:
+
+```bash
+npm install @mijnservices/plan-card
+```
+
+Then use it as a web component:
+
+```html
+<mijnservices-plan-card href="/link" aria-label="Plan naam">
+  <span slot="domain">Domein naam</span>
+  <h3 slot="heading">Plan naam</h3>
+</mijnservices-plan-card>
+```
+
+Or as a React component:
+
+```tsx
+import { PlanCard } from "@mijnservices/plan-card/react";
+
+<PlanCard href="/link" aria-label="Plan naam">
+  <span slot="domain">Domein naam</span>
+  <h3 slot="heading">Plan naam</h3>
+</PlanCard>;
+```
+
+## License
+
+[EUPL-1.2](https://github.com/maykinmedia/mijnservices-components/blob/main/LICENSE.md)
