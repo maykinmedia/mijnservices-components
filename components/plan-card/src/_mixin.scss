@@ -55,7 +55,7 @@
 
 @mixin mijnservices-plan-card__domain {
   color: var(--mijnservices-plan-card-domain-color, #001a40);
-  font-size: var(--mijnservices-plan-card-domain-font-size, 14px);
+  font-size: var(--mijnservices-plan-card-domain-font-size, 0.875rem);
   font-weight: var(--mijnservices-plan-card-domain-font-weight, 400);
   line-height: 1.5;
   margin: 0;
@@ -63,10 +63,10 @@
 
 @mixin mijnservices-plan-card__heading {
   color: var(--mijnservices-plan-card-heading-color, #001a40);
-  font-size: var(--mijnservices-plan-card-heading-font-size, 20px);
+  font-size: var(--mijnservices-plan-card-heading-font-size, 1.25rem);
   font-weight: var(--mijnservices-plan-card-heading-font-weight, 700);
   line-height: 1.25;
-  margin-block: 4px 0;
+  margin-block: var(--mijnservices-plan-card-heading-margin-block, 0.25rem 0);
 }
 
 @mixin mijnservices-plan-card__footer {
@@ -78,7 +78,7 @@
 
 @mixin mijnservices-plan-card__date {
   color: var(--mijnservices-plan-card-date-color, #001a40);
-  font-size: var(--mijnservices-plan-card-date-font-size, 14px);
+  font-size: var(--mijnservices-plan-card-date-font-size, 0.875rem);
   margin-inline-end: auto;
 }
 
@@ -95,6 +95,13 @@
     inset: 0;
     position: absolute;
   }
+
+  &:focus-visible {
+    outline-color: var(--mijnservices-plan-card-action-focus-outline-color, #00568b);
+    outline-offset: var(--mijnservices-plan-card-action-focus-outline-offset, 4px);
+    outline-style: solid;
+    outline-width: var(--mijnservices-plan-card-action-focus-outline-width, 3px);
+  }
 }
 
 @mixin mijnservices-plan-card__arrow {
@@ -103,7 +110,7 @@
 }
 
 @mixin mijnservices-plan-card--plain {
-  background: white;
+  background: var(--mijnservices-plan-card-plain-background-color, white);
   border-color: var(--mijnservices-plan-card-border-color, #000000);
   border-style: solid;
   border-width: var(--mijnservices-plan-card-border-width, 1px);
