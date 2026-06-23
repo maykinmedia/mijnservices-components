@@ -14,6 +14,7 @@ const tokensJson = JSON.stringify(
       'plan-card': {
         'background-color': {},
         'inner-background-color': {},
+        'plain-background-color': {},
         'clip-color': {},
         'border-color': {},
         'border-width': {},
@@ -32,6 +33,7 @@ const tokensJson = JSON.stringify(
           color: {},
           'font-size': {},
           'font-weight': {},
+          'margin-block': {},
         },
         date: {
           color: {},
@@ -39,6 +41,11 @@ const tokensJson = JSON.stringify(
         },
         action: {
           color: {},
+          focus: {
+            'outline-color': {},
+            'outline-offset': {},
+            'outline-width': {},
+          },
         },
         footer: {
           'margin-block-start': {},
@@ -54,6 +61,7 @@ const cssTemplate = `
 .your-theme {
   /* --mijnservices-plan-card-background-color: <color>; */
   /* --mijnservices-plan-card-inner-background-color: <color>; */
+  /* --mijnservices-plan-card-plain-background-color: <color>; */
   /* --mijnservices-plan-card-clip-color: <color>; */
   /* --mijnservices-plan-card-border-color: <color>; */
   /* --mijnservices-plan-card-border-width: <length>; */
@@ -69,9 +77,13 @@ const cssTemplate = `
   /* --mijnservices-plan-card-heading-color: <color>; */
   /* --mijnservices-plan-card-heading-font-size: <length>; */
   /* --mijnservices-plan-card-heading-font-weight: <number>; */
+  /* --mijnservices-plan-card-heading-margin-block: <length>; */
   /* --mijnservices-plan-card-date-color: <color>; */
   /* --mijnservices-plan-card-date-font-size: <length>; */
   /* --mijnservices-plan-card-action-color: <color>; */
+  /* --mijnservices-plan-card-action-focus-outline-color: <color>; */
+  /* --mijnservices-plan-card-action-focus-outline-offset: <length>; */
+  /* --mijnservices-plan-card-action-focus-outline-width: <length>; */
   /* --mijnservices-plan-card-footer-margin-block-start: <length>; */
 }
 `.trim();
