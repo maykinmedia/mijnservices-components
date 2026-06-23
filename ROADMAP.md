@@ -41,3 +41,15 @@ components/
 ## Maintenance
 
 Let op 'npm audit fix', storybook updates, vite updates + bijwerken van de Dicussions op https://github.com/orgs/nl-design-system/discussions/categories/mijn-omgevingen
+
+## Vite
+
+Vite heeft twee rollen in dit project:
+
+1. Bouwen van de component packages
+
+Elk component heeft een vite.config.ts die de bronbestanden (src/) omzet naar een dist/ map die op npmjs gepubliceerd wordt. Vite bundelt de TypeScript, laadt de SCSS via ?inline in, en genereert losse entry points voor de web component, React wrapper en CSS.
+
+2. Storybook
+
+@storybook/web-components-vite gebruikt Vite als builder voor de Storybook dev server en de gebouwde Storybook. Storybook 10 heeft een bundler nodig en Vite is de snelste optie. (Rollup alleen onder de motorkap, geen esbuild).

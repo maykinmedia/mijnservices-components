@@ -6,6 +6,7 @@ const meta: Meta = {
   title: 'Components/PlanCard',
   component: 'mijnservices-plan-card',
   tags: ['autodocs'],
+  decorators: [(story) => html` <div style="max-inline-size: 360px; padding: 2rem;">${story()}</div> `],
   argTypes: {
     href: { control: 'text' },
     ariaLabel: { control: 'text' },
