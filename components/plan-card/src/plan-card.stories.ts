@@ -7,9 +7,8 @@ const meta: Meta = {
   component: 'mijnservices-plan-card',
   tags: ['autodocs'],
   argTypes: {
-    heading: { control: 'text' },
-    domain: { control: 'text' },
     href: { control: 'text' },
+    ariaLabel: { control: 'text' },
     date: { control: 'text' },
     dateTime: { control: 'text' },
     appearance: {
@@ -24,56 +23,50 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    heading: 'Plan naam',
-    domain: 'Domein naam',
     href: '#',
+    ariaLabel: 'Plan naam',
     appearance: 'default',
   },
   render: (args) => html`
-    <mijnservices-plan-card
-      heading=${args.heading}
-      domain=${args.domain}
-      href=${args.href}
-      appearance=${args.appearance}
-    ></mijnservices-plan-card>
+    <mijnservices-plan-card href=${args.href} aria-label=${args.ariaLabel} appearance=${args.appearance}>
+      <span slot="domain">Domein naam</span>
+      <h3 slot="heading">Plan naam</h3>
+    </mijnservices-plan-card>
   `,
 };
 
 export const WithDate: Story = {
   args: {
-    heading: 'Plan naam',
-    domain: 'Domein naam',
     href: '#',
+    ariaLabel: 'Plan naam',
     date: '10 juni 2026',
     dateTime: '2026-06-10',
     appearance: 'default',
   },
   render: (args) => html`
     <mijnservices-plan-card
-      heading=${args.heading}
-      domain=${args.domain}
       href=${args.href}
+      aria-label=${args.ariaLabel}
       date=${args.date}
       date-time=${args.dateTime}
       appearance=${args.appearance}
-    ></mijnservices-plan-card>
+    >
+      <span slot="domain">Domein naam</span>
+      <h3 slot="heading">Plan naam</h3>
+    </mijnservices-plan-card>
   `,
 };
 
 export const WithSlotContent: Story = {
   args: {
-    heading: 'Plan naam',
-    domain: 'Domein naam',
     href: '#',
+    ariaLabel: 'Plan naam',
     appearance: 'default',
   },
   render: (args) => html`
-    <mijnservices-plan-card
-      heading=${args.heading}
-      domain=${args.domain}
-      href=${args.href}
-      appearance=${args.appearance}
-    >
+    <mijnservices-plan-card href=${args.href} aria-label=${args.ariaLabel} appearance=${args.appearance}>
+      <span slot="domain">Domein naam</span>
+      <h3 slot="heading">Plan naam</h3>
       <button type="button">Bekijk details</button>
     </mijnservices-plan-card>
   `,
@@ -81,38 +74,36 @@ export const WithSlotContent: Story = {
 
 export const Plain: Story = {
   args: {
-    heading: 'Plan naam',
-    domain: 'Domein naam',
     href: '#',
+    ariaLabel: 'Plan naam',
     appearance: 'plain',
   },
   render: (args) => html`
-    <mijnservices-plan-card
-      heading=${args.heading}
-      domain=${args.domain}
-      href=${args.href}
-      appearance=${args.appearance}
-    ></mijnservices-plan-card>
+    <mijnservices-plan-card href=${args.href} aria-label=${args.ariaLabel} appearance=${args.appearance}>
+      <span slot="domain">Domein naam</span>
+      <h3 slot="heading">Plan naam</h3>
+    </mijnservices-plan-card>
   `,
 };
 
 export const PlainWithDate: Story = {
   args: {
-    heading: 'Plan naam',
-    domain: 'Domein naam',
     href: '#',
+    ariaLabel: 'Plan naam',
     date: '10 juni 2026',
     dateTime: '2026-06-10',
     appearance: 'plain',
   },
   render: (args) => html`
     <mijnservices-plan-card
-      heading=${args.heading}
-      domain=${args.domain}
       href=${args.href}
+      aria-label=${args.ariaLabel}
       date=${args.date}
       date-time=${args.dateTime}
       appearance=${args.appearance}
-    ></mijnservices-plan-card>
+    >
+      <span slot="domain">Domein naam</span>
+      <h3 slot="heading">Plan naam</h3>
+    </mijnservices-plan-card>
   `,
 };

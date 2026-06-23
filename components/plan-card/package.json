@@ -1,6 +1,6 @@
 {
   "name": "@mijnservices/plan-card",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Card component for plans in MijnServices, built on NL Design System architecture",
   "license": "EUPL-1.2",
   "repository": {

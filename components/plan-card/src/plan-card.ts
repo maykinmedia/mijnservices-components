@@ -8,9 +8,8 @@ export type PlanCardAppearance = 'default' | 'plain';
 export class MijnservicesPlanCard extends LitElement {
   static styles = unsafeCSS(styles);
 
-  @property() heading = '';
-  @property() domain = '';
   @property() href = '';
+  @property({ attribute: 'aria-label' }) ariaLabel = '';
   @property() date = '';
   @property({ attribute: 'date-time' }) dateTime = '';
   @property() appearance: PlanCardAppearance = 'default';
@@ -22,15 +21,15 @@ export class MijnservicesPlanCard extends LitElement {
         <div class="mijnservices-plan-card__background"></div>
         <div class="mijnservices-plan-card__inner">
           <div>
-            <p class="mijnservices-plan-card__domain">${this.domain}</p>
-            <p class="mijnservices-plan-card__heading">${this.heading}</p>
+            <slot name="domain"></slot>
+            <slot name="heading"></slot>
           </div>
           <slot></slot>
           <div class="mijnservices-plan-card__footer">
             ${this.date
               ? html`<time class="mijnservices-plan-card__date" datetime="${this.dateTime}">${this.date}</time>`
               : html`<span></span>`}
-            <a class="mijnservices-plan-card__action" href="${this.href}" aria-label="${this.heading}">
+            <a class="mijnservices-plan-card__action" href="${this.href}" aria-label="${this.ariaLabel}">
               <svg
                 class="mijnservices-plan-card__arrow"
                 xmlns="http://www.w3.org/2000/svg"
