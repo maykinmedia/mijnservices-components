@@ -1,0 +1,35 @@
+{
+  "name": "@mijnservices/section-wrapper",
+  "version": "0.1.0",
+  "description": "Labelled section wrapper component for MijnServices, built on NL Design System architecture",
+  "license": "EUPL-1.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maykinmedia/mijnservices-components"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./react": "./dist/section-wrapper.react.js",
+    "./css": "./dist/section-wrapper.css"
+  },
+  "files": [
+    "dist",
+    "tokens.json"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2"
+  }
+}
