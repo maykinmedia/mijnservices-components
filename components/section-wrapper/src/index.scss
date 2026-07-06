@@ -1,0 +1,21 @@
+@use "mixin" as *;
+
+.mijnservices-section-wrapper {
+  @include mijnservices-section-wrapper;
+}
+
+.mijnservices-section-wrapper__hgroup {
+  @include mijnservices-section-wrapper__hgroup;
+}
+
+.mijnservices-section-wrapper__eyebrow {
+  @include mijnservices-section-wrapper__eyebrow;
+}
+
+.mijnservices-section-wrapper__heading {
+  @include mijnservices-section-wrapper__heading;
+}
+
+.mijnservices-section-wrapper__link {
+  @include mijnservices-section-wrapper__link;
+}
