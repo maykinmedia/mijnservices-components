@@ -1,6 +1,6 @@
 {
   "name": "@mijnservices/section-wrapper",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Labelled section wrapper component for MijnServices, built on NL Design System architecture",
   "license": "EUPL-1.2",
   "repository": {
