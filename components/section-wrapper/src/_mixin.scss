@@ -1,19 +1,31 @@
 @mixin mijnservices-section-wrapper {
-  border-color: var(--mijnservices-section-wrapper-border-color, #000000);
+  border-color: var(--mijnservices-section-wrapper-border-color, rgb(209, 209, 209));
   border-radius: var(--mijnservices-section-wrapper-border-radius, 4px);
   border-style: solid;
   border-width: var(--mijnservices-section-wrapper-border-width, 1px);
   display: flex;
   flex-direction: column;
   gap: var(--mijnservices-section-wrapper-gap, 16px);
-  padding-block: var(--mijnservices-section-wrapper-padding-block, 24px);
-  padding-inline: var(--mijnservices-section-wrapper-padding-inline, 24px);
 }
 
 @mixin mijnservices-section-wrapper__hgroup {
   display: flex;
   flex-direction: column;
   gap: var(--mijnservices-section-wrapper-hgroup-gap, 4px);
+  padding-block-start: var(--mijnservices-section-wrapper-header-padding-block-start, 16px);
+  padding-block-end: var(--mijnservices-section-wrapper-header-padding-block-end, 16px);
+  padding-inline-start: var(--mijnservices-section-wrapper-header-padding-inline-start, 16px);
+  padding-inline-end: var(--mijnservices-section-wrapper-header-padding-inline-end, 16px);
+}
+
+@mixin mijnservices-section-wrapper__body {
+  // <slot> defaults to `display: contents`, which generates no box — this
+  // wrapping div is what actually accepts padding, since the slot itself never can.
+  display: block;
+  padding-block-start: var(--mijnservices-section-wrapper-body-padding-block-start, 4px);
+  padding-block-end: var(--mijnservices-section-wrapper-body-padding-block-end, 4px);
+  padding-inline-start: var(--mijnservices-section-wrapper-body-padding-inline-start, 4px);
+  padding-inline-end: var(--mijnservices-section-wrapper-body-padding-inline-end, 4px);
 }
 
 @mixin mijnservices-section-wrapper__eyebrow {

@@ -15,8 +15,18 @@ const tokensJson = JSON.stringify(
         'border-color': {},
         'border-width': {},
         'border-radius': {},
-        'padding-block': {},
-        'padding-inline': {},
+        header: {
+          'padding-block-start': {},
+          'padding-block-end': {},
+          'padding-inline-start': {},
+          'padding-inline-end': {},
+        },
+        body: {
+          'padding-block-start': {},
+          'padding-block-end': {},
+          'padding-inline-start': {},
+          'padding-inline-end': {},
+        },
         gap: {},
         'hgroup-gap': {},
         eyebrow: {
@@ -48,8 +58,14 @@ const cssTemplate = `
   /* --mijnservices-section-wrapper-border-color: <color>; */
   /* --mijnservices-section-wrapper-border-width: <length>; */
   /* --mijnservices-section-wrapper-border-radius: <length>; */
-  /* --mijnservices-section-wrapper-padding-block: <length>; */
-  /* --mijnservices-section-wrapper-padding-inline: <length>; */
+  /* --mijnservices-section-wrapper-header-padding-block-start: <length>; */
+  /* --mijnservices-section-wrapper-header-padding-block-end: <length>; */
+  /* --mijnservices-section-wrapper-header-padding-inline-start: <length>; */
+  /* --mijnservices-section-wrapper-header-padding-inline-end: <length>; */
+  /* --mijnservices-section-wrapper-body-padding-block-start: <length>; */
+  /* --mijnservices-section-wrapper-body-padding-block-end: <length>; */
+  /* --mijnservices-section-wrapper-body-padding-inline-start: <length>; */
+  /* --mijnservices-section-wrapper-body-padding-inline-end: <length>; */
   /* --mijnservices-section-wrapper-gap: <length>; */
   /* --mijnservices-section-wrapper-hgroup-gap: <length>; */
   /* --mijnservices-section-wrapper-eyebrow-color: <color>; */

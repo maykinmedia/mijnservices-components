@@ -57,7 +57,9 @@ export class MijnservicesSectionWrapper extends LitElement {
           ${this.eyebrow ? html`<p class="mijnservices-section-wrapper__eyebrow">${this.eyebrow}</p>` : ''}
           ${this.renderHeading()}
         </hgroup>
-        <slot></slot>
+        <div class="mijnservices-section-wrapper__body">
+          <slot></slot>
+        </div>
       </section>
     `;
   }

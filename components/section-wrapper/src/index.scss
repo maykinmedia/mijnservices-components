@@ -8,6 +8,10 @@
   @include mijnservices-section-wrapper__hgroup;
 }
 
+.mijnservices-section-wrapper__body {
+  @include mijnservices-section-wrapper__body;
+}
+
 .mijnservices-section-wrapper__eyebrow {
   @include mijnservices-section-wrapper__eyebrow;
 }

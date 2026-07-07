@@ -111,7 +111,7 @@
 
 @mixin mijnservices-plan-card--plain {
   background: var(--mijnservices-plan-card-plain-background-color, white);
-  border-color: var(--mijnservices-plan-card-border-color, #000000);
+  border-color: var(--mijnservices-plan-card-border-color, rgb(209, 209, 209));
   border-style: solid;
   border-width: var(--mijnservices-plan-card-border-width, 1px);
 
