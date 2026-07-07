@@ -1,5 +1,11 @@
 ## Getting started with mijnservices-components
 
+[![Storybook](https://img.shields.io/badge/storybook-live-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components)
+
+[NPMJS →](https://www.npmjs.com/package/@mijnservices/plan-card)
+
+Work in Progress: experimental MijnServices web components based on the NL Design System architecture.
+
 ```bash
 pnpm install
 ```
