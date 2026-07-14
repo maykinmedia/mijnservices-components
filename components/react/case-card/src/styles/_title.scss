@@ -1,0 +1,8 @@
+// Let op: dit target de class, niet het element. Zo blijft de styling
+// identiek of de titel nu als <p> of als <h2>...<h6> gerenderd wordt.
+.mijnservices-case-card__title {
+  margin: 0;
+  font-size: var(--mijnservices-case-card-title-font-size, 1.125rem);
+  font-weight: var(--mijnservices-case-card-title-font-weight, 700);
+  color: var(--mijnservices-case-card-title-color, #1a1a1a);
+}

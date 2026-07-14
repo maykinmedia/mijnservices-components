@@ -1,0 +1,21 @@
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
+
+export default defineConfig({
+  plugins: [react(), dts({ rollupTypes: true, insertTypesEntry: true })],
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'MijnservicesCaseCard',
+      fileName: 'case-card',
+      formats: ['es', 'cjs'],
+    },
+    rollupOptions: {
+      // React blijft een peer dependency, dus niet meebundelen
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
+    },
+    cssCodeSplit: false,
+  },
+});

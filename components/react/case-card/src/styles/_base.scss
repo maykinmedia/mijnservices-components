@@ -1,0 +1,15 @@
+.mijnservices-case-card {
+  display: block;
+  position: relative;
+  border-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
+  background-color: var(--mijnservices-case-card-background-color, #fff);
+
+  &--archived {
+    opacity: 0.6;
+  }
+
+  &--list {
+    display: flex;
+    align-items: center;
+  }
+}
