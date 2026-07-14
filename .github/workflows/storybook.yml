@@ -34,8 +34,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Storybook
-        run: pnpm build-storybook
+      - name: Build web components Storybook
+        run: pnpm build-storybook -o storybook-static
+
+      - name: Build React Storybook
+        run: pnpm build-storybook:react -o storybook-static/react
 
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:

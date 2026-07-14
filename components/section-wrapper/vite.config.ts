@@ -10,7 +10,7 @@ export default defineConfig({
       },
       formats: ['es'],
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['lit', /^lit\//, 'react', '@lit/react'],
     },
   },

@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({ rollupTypes: true, insertTypesEntry: true })],
+  plugins: [react(), dts({ bundleTypes: true, insertTypesEntry: true })],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -12,7 +12,7 @@ export default defineConfig({
       fileName: 'case-card',
       formats: ['es', 'cjs'],
     },
-    rollupOptions: {
+    rolldownOptions: {
       // React blijft een peer dependency, dus niet meebundelen
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
