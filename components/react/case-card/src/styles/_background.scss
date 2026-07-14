@@ -1,6 +1,77 @@
 .mijnservices-case-card__background {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
+  z-index: -1;
+  inset-block-start: var(--mijnservices-case-card-background-inset-block-start, 0);
+  inset-block-end: var(--mijnservices-case-card-background-inset-block-end, 0);
+  inset-inline-start: var(--mijnservices-case-card-background-inset-inline-start, 0);
+  inset-inline-end: var(--mijnservices-case-card-background-inset-inline-end, 0);
+  border-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
+  border-start-start-radius: 0;
+  background: var(--mijnservices-case-card-background-background-color, #f5f5f5);
+
+  &::before {
+    position: absolute;
+    inset-block-start: -20px;
+    inset-inline-start: 0;
+    display: block;
+    inline-size: 60%;
+    block-size: 25px;
+    content: "";
+    border-start-start-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
+    background: var(--mijnservices-case-card-background-background-color, #f5f5f5);
+  }
+
+  &::after {
+    position: absolute;
+    inset-block-start: -20px;
+    inset-inline-start: 55%;
+    display: block;
+    inline-size: 10%;
+    block-size: 22px;
+    content: "";
+    transform: skewX(30deg);
+    background: var(--mijnservices-case-card-background-background-color, #f5f5f5);
+  }
+}
+
+.mijnservices-case-card:hover .mijnservices-case-card__background,
+.mijnservices-case-card:focus-within .mijnservices-case-card__background,
+.mijnservices-case-card:hover .mijnservices-case-card__background::before,
+.mijnservices-case-card:focus-within .mijnservices-case-card__background::before,
+.mijnservices-case-card:hover .mijnservices-case-card__background::after,
+.mijnservices-case-card:focus-within .mijnservices-case-card__background::after {
+  background: var(
+    --mijnservices-case-card-decoration-folder-hover-background-color,
+    var(--mijnservices-case-card-background-background-color, #f5f5f5)
+  );
+}
+
+.mijnservices-case-card:active .mijnservices-case-card__background,
+.mijnservices-case-card:active .mijnservices-case-card__background::before,
+.mijnservices-case-card:active .mijnservices-case-card__background::after {
+  background: var(
+    --mijnservices-case-card-decoration-folder-active-background-color,
+    var(--mijnservices-case-card-background-background-color, #f5f5f5)
+  );
+}
+
+.mijnservices-case-card--archived:hover .mijnservices-case-card__background,
+.mijnservices-case-card--archived:focus-within .mijnservices-case-card__background,
+.mijnservices-case-card--archived:hover .mijnservices-case-card__background::before,
+.mijnservices-case-card--archived:focus-within .mijnservices-case-card__background::before,
+.mijnservices-case-card--archived:hover .mijnservices-case-card__background::after,
+.mijnservices-case-card--archived:focus-within .mijnservices-case-card__background::after {
+  background: var(
+    --mijnservices-case-card-archived-decoration-folder-hover-background-color,
+    var(--mijnservices-case-card-archived-background-background-color)
+  );
+}
+
+.mijnservices-case-card--archived:active .mijnservices-case-card__background,
+.mijnservices-case-card--archived:active .mijnservices-case-card__background::before,
+.mijnservices-case-card--archived:active .mijnservices-case-card__background::after {
+  background: var(
+    --mijnservices-case-card-archived-decoration-folder-active-background-color,
+    var(--mijnservices-case-card-archived-background-background-color)
+  );
 }

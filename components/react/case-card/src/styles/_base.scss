@@ -1,15 +1,119 @@
-.mijnservices-case-card {
-  display: block;
-  position: relative;
-  border-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
-  background-color: var(--mijnservices-case-card-background-color, #fff);
+@mixin list-view {
+  --mijnservices-case-card-height: none;
+  --mijnservices-case-card-background-color: none;
+  --mijnservices-case-card-padding-block-start: 0px;
+  --mijnservices-case-card-border-style: var(--mijnservices-case-card-list-border-style);
+  --mijnservices-case-card-border-width: var(--mijnservices-case-card-list-border-width);
+  --mijnservices-case-card-border-color: var(--mijnservices-case-card-list-border-color);
+  --mijnservices-case-card-before-display: none;
+  --mijnservices-case-card-wrapper-gap: var(--mijnservices-case-card-list-wrapper-gap);
+  --mijnservices-case-card-wrapper-flex-direction: var(--mijnservices-case-card-list-wrapper-flex-direction);
+  --mijnservices-case-card-wrapper-padding-block-start: var(--mijnservices-case-card-list-wrapper-padding-block-start);
+  --mijnservices-case-card-wrapper-padding-block-end: var(--mijnservices-case-card-list-wrapper-padding-block-end);
+  --mijnservices-case-card-wrapper-padding-inline-start: var(
+    --mijnservices-case-card-list-wrapper-padding-inline-start
+  );
+  --mijnservices-case-card-wrapper-padding-inline-end: var(--mijnservices-case-card-list-wrapper-padding-inline-end);
+  --mijnservices-case-card-background-background-color: none;
+  --mijnservices-case-card-decoration-folder-hover-background-color: none;
+  --mijnservices-case-card-decoration-folder-active-background-color: none;
+  --mijnservices-case-card-hover-background-color: var(--mijnservices-case-card-list-hover-background-color, #f5f5f5);
+  --mijnservices-case-card-active-background-color: var(--mijnservices-case-card-list-active-background-color, #ebebeb);
+  --mijnservices-case-card-title-color: var(--mijnservices-case-card-list-title-color);
+  --mijnservices-case-card-title-font-size: var(--mijnservices-case-card-list-title-font-size);
+  --mijnservices-case-card-subtitle-color: var(--mijnservices-case-card-list-subtitle-color);
+  --mijnservices-case-card-footer-gap: var(--mijnservices-case-card-list-footer-gap);
+  --mijnservices-case-card-context-color: var(--mijnservices-case-card-list-context-color);
+}
 
-  &--archived {
-    opacity: 0.6;
+.mijnservices-case-card {
+  inline-size: 100%;
+  block-size: var(--mijnservices-case-card-height, auto);
+  background: var(--mijnservices-case-card-background-color, #fff);
+  padding-block-start: var(--mijnservices-case-card-padding-block-start, 20px);
+  border-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
+  border-block-end-style: var(--mijnservices-case-card-border-style, none);
+  border-block-end-width: var(--mijnservices-case-card-border-width, 0);
+  border-block-end-color: var(--mijnservices-case-card-border-color, none);
+  position: relative;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus-within {
+    cursor: pointer;
+    background: var(
+      --mijnservices-case-card-hover-background-color,
+      var(--mijnservices-case-card-background-color, #fff)
+    );
+
+    .mijnservices-case-card__action {
+      color: var(--mijnservices-case-card-action-active-color, var(--mijnservices-case-card-action-color));
+    }
+  }
+
+  &:active {
+    background: var(
+      --mijnservices-case-card-active-background-color,
+      var(--mijnservices-case-card-background-color, #fff)
+    );
+  }
+
+  &::before {
+    position: absolute;
+    inset-block-start: 8px;
+    inset-inline-end: 8px;
+    display: var(--mijnservices-case-card-before-display, block);
+    inline-size: 50%;
+    block-size: 20px;
+    content: "";
+    border-start-end-radius: var(--mijnservices-case-card-border-radius, 0.5rem);
+    background: var(--mijnservices-case-card-paper-color, #fff);
+  }
+
+  @media (width <= 480px) {
+    @include list-view;
+
+    --mijnservices-case-card-list-wrapper-flex-direction: column;
   }
 
   &--list {
-    display: flex;
-    align-items: center;
+    @include list-view;
+  }
+
+  &--archived {
+    --mijnservices-case-card-background-color: var(--mijnservices-case-card-archived-background-color);
+    --mijnservices-case-card-color: var(--mijnservices-case-card-archived-color);
+    --mijnservices-case-card-background-background-color: var(
+      --mijnservices-case-card-archived-background-background-color
+    );
+    --mijnservices-case-card-title-color: var(--mijnservices-case-card-archived-title-color);
+    --mijnservices-case-card-subtitle-color: var(--mijnservices-case-card-archived-subtitle-color);
+    --mijnservices-case-card-context-color: var(--mijnservices-case-card-archived-context-color);
+    --mijnservices-case-card-action-color: var(--mijnservices-case-card-archived-action-color);
+    --mijnservices-case-card-action-active-color: var(--mijnservices-case-card-archived-action-color);
+
+    &:hover,
+    &:focus-within {
+      background: var(
+        --mijnservices-case-card-archived-hover-background-color,
+        var(--mijnservices-case-card-archived-background-color)
+      );
+    }
+
+    &:active {
+      background: var(
+        --mijnservices-case-card-archived-active-background-color,
+        var(--mijnservices-case-card-archived-background-color)
+      );
+    }
+  }
+
+  &--focus,
+  &:focus-within {
+    outline: var(--mijnservices-focus-border, 2px dotted #154273);
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }

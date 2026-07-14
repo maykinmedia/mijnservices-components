@@ -1,6 +1,7 @@
 .mijnservices-case-card__footer {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: var(--mijnservices-case-card-footer-gap, 0.5rem);
 }

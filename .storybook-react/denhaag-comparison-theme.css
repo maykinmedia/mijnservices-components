@@ -1,0 +1,72 @@
+/* .storybook-react/denhaag-comparison-theme.css — ALLEEN voor lokale visuele vergelijking, niet publiceren */
+:root {
+  --mijnservices-case-card-height: 240px;
+  --mijnservices-case-card-border-radius: 3px;
+  --mijnservices-case-card-background-color: hsl(210, 64%, 80%); /* blue.2 */
+  --mijnservices-case-card-padding-block-start: 20px;
+  --mijnservices-case-card-wrapper-padding-block-start: 12px;
+  --mijnservices-case-card-wrapper-padding-block-end: 24px;
+  --mijnservices-case-card-wrapper-padding-inline-start: 24px;
+  --mijnservices-case-card-wrapper-padding-inline-end: 24px;
+  --mijnservices-case-card-background-background-color: hsl(208, 76%, 92%); /* blue.1 */
+  --mijnservices-case-card-title-color: hsl(207, 93%, 16%); /* blue.5 */
+  --mijnservices-case-card-title-font-size: 1.4375rem; /* ~23px, basis.text.font-size.xl */
+  --mijnservices-case-card-title-font-weight: 700;
+  --mijnservices-case-card-title-line-height: 1.5;
+  --mijnservices-case-card-subtitle-color: hsl(207, 87%, 27%); /* blue.4 */
+  --mijnservices-case-card-subtitle-font-size: 1.125rem; /* basis.text.font-size.md */
+  --mijnservices-case-card-subtitle-font-weight: 400;
+  --mijnservices-case-card-subtitle-line-height: 1.5;
+  --mijnservices-case-card-subtitle-margin-block-start: 0.25rem;
+  --mijnservices-case-card-context-color: hsl(207, 87%, 27%); /* blue.4 */
+  --mijnservices-case-card-action-color: hsl(207, 80%, 35%); /* blue.3 */
+  --mijnservices-case-card-action-active-color: hsl(207, 87%, 27%); /* blue.4 */
+
+  /* hover/active — kaart zelf (case-card.hover / case-card.active) */
+  --mijnservices-case-card-hover-background-color: hsl(210, 64%, 76%); /* blue.2, ~5% donkerder */
+  --mijnservices-case-card-active-background-color: hsl(210, 64%, 70%); /* blue.2, ~13% donkerder */
+
+  /* hover/active — mapje-vlak (case-card.decoration.folder.hover / .active) */
+  --mijnservices-case-card-decoration-folder-hover-background-color: hsl(208, 76%, 88%); /* blue.1, ~4% donkerder */
+  --mijnservices-case-card-decoration-folder-active-background-color: hsl(208, 76%, 82%); /* blue.1, ~11% donkerder */
+
+  /* archived-variant */
+  --mijnservices-case-card-archived-background-color: hsl(0, 0%, 82%); /* grey.2 */
+  --mijnservices-case-card-archived-background-background-color: hsl(0, 0%, 95%); /* grey.1 */
+  --mijnservices-case-card-archived-title-color: hsl(0, 0%, 18%); /* grey.5 */
+  --mijnservices-case-card-archived-subtitle-color: hsl(0, 0%, 29%); /* grey.4 */
+  --mijnservices-case-card-archived-context-color: hsl(0, 0%, 29%); /* grey.4 */
+  --mijnservices-case-card-archived-action-color: hsl(0, 0%, 29%); /* grey.4 */
+
+  /* hover/active — archived-variant, kaart zelf */
+  --mijnservices-case-card-archived-hover-background-color: hsl(0, 0%, 78%); /* grey.2, ~4% donkerder */
+  --mijnservices-case-card-archived-active-background-color: hsl(0, 0%, 72%); /* grey.2, ~10% donkerder */
+
+  /* hover/active — archived-variant, mapje-vlak */
+  --mijnservices-case-card-archived-decoration-folder-hover-background-color: hsl(
+    0,
+    0%,
+    91%
+  ); /* grey.1, ~4% donkerder */
+  --mijnservices-case-card-archived-decoration-folder-active-background-color: hsl(
+    0,
+    0%,
+    85%
+  ); /* grey.1, ~10% donkerder */
+
+  /* list-variant */
+  --mijnservices-case-card-list-border-style: solid;
+  --mijnservices-case-card-list-border-width: 1px;
+  --mijnservices-case-card-list-border-color: hsl(0, 0%, 82%); /* grey.2 */
+  --mijnservices-case-card-list-wrapper-gap: 1.5rem;
+  --mijnservices-case-card-list-wrapper-flex-direction: row;
+  --mijnservices-case-card-list-wrapper-padding-block-start: 1rem;
+  --mijnservices-case-card-list-wrapper-padding-block-end: 1rem;
+  --mijnservices-case-card-list-wrapper-padding-inline-start: 1rem;
+  --mijnservices-case-card-list-wrapper-padding-inline-end: 1rem;
+  --mijnservices-case-card-list-title-color: hsl(0, 0%, 18%); /* grey.5 */
+  --mijnservices-case-card-list-title-font-size: 1.125rem;
+  --mijnservices-case-card-list-subtitle-color: hsl(0, 0%, 29%); /* grey.4 */
+  --mijnservices-case-card-list-footer-gap: 1.25rem;
+  --mijnservices-case-card-list-context-color: hsl(0, 0%, 29%); /* grey.4 */
+}

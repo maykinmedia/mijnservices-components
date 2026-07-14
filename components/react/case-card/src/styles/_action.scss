@@ -1,16 +1,31 @@
 .mijnservices-case-card__action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  display: block;
+  margin-inline-start: auto;
   color: var(--mijnservices-case-card-action-color, #154273);
 
-  &:focus-visible {
-    outline: var(--mijnservices-case-card-focus-outline, 2px solid #154273);
-    outline-offset: 2px;
+  &:focus {
+    outline: none;
   }
-}
 
-.mijnservices-case-card__arrow {
-  display: inline-block;
+  &::before {
+    --mijnservices-case-card-action-before-padding-block-start: calc(
+      var(--mijnservices-case-card-padding-block-start, 0) +
+        var(--mijnservices-case-card-wrapper-padding-block-start, 0)
+    );
+
+    content: "";
+    position: absolute;
+    inset-block-start: calc(0px - var(--mijnservices-case-card-padding-block-start, 0));
+    inset-block-end: var(--mijnservices-case-card-action-before-inset-block-end, 0);
+    inset-inline-start: var(--mijnservices-case-card-action-before-inset-inline-start, 0);
+    inset-inline-end: var(--mijnservices-case-card-action-before-inset-inline-end, 0);
+    padding-block-start: var(--mijnservices-case-card-action-before-padding-block-start);
+    padding-block-end: var(--mijnservices-case-card-wrapper-padding-block-end, 0);
+    padding-inline-start: var(--mijnservices-case-card-wrapper-padding-inline-start, 0);
+    padding-inline-end: var(--mijnservices-case-card-wrapper-padding-inline-end, 0);
+  }
+
+  svg {
+    display: block !important;
+  }
 }
