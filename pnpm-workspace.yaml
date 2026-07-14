@@ -1,2 +1,7 @@
 packages:
-  - "components/*"
+  - components/*
+  - components/react/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - "@parcel/watcher"
