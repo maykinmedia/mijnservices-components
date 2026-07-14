@@ -1,3 +1,4 @@
+import './styles/index.scss';
 import React, { AnchorHTMLAttributes, ComponentType } from 'react';
 import Base from './CaseCardBase';
 import Wrapper from './CaseCardWrapper';

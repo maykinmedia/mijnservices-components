@@ -53,3 +53,7 @@ Elk component heeft een vite.config.ts die de bronbestanden (src/) omzet naar ee
 2. Storybook
 
 @storybook/web-components-vite gebruikt Vite als builder voor de Storybook dev server en de gebouwde Storybook. Storybook 10 heeft een bundler nodig en Vite is de snelste optie. (Rollup alleen onder de motorkap, geen esbuild).
+
+## React toevoegen
+
+Om deze repositiry als werkend voorbeeld te laten dienen, voegen we React toe zodat er ook daadwerkelijke React componenten gebouwd kunnen worden (niet allee nals wrapper).
