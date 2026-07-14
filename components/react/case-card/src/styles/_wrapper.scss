@@ -1,0 +1,7 @@
+.mijnservices-case-card__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mijnservices-case-card-wrapper-gap, 0.5rem);
+  padding: var(--mijnservices-case-card-wrapper-padding, 1rem);
+}

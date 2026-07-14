@@ -1,0 +1,16 @@
+.mijnservices-case-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--mijnservices-case-card-action-color, #154273);
+
+  &:focus-visible {
+    outline: var(--mijnservices-case-card-focus-outline, 2px solid #154273);
+    outline-offset: 2px;
+  }
+}
+
+.mijnservices-case-card__arrow {
+  display: inline-block;
+}
