@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CaseCard } from './CaseCard';
+import { CardAsLink } from './CardAsLink';
 
-const meta: Meta<typeof CaseCard> = {
-  title: 'React/CaseCard',
-  component: CaseCard,
+const meta: Meta<typeof CardAsLink> = {
+  title: 'React/CardAsLink',
+  component: CardAsLink,
   tags: ['autodocs'],
   argTypes: {
     eyebrow: { control: 'text' },
@@ -23,7 +23,7 @@ const meta: Meta<typeof CaseCard> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof CaseCard>;
+type Story = StoryObj<typeof CardAsLink>;
 
 const decorators: typeof meta.decorators = [
   (Story) => (

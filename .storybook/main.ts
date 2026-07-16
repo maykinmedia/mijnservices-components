@@ -7,6 +7,12 @@ const config: StorybookConfig = {
     name: '@storybook/web-components-vite',
     options: {},
   },
+  refs: {
+    react: {
+      title: 'React Components',
+      url: 'https://maykinmedia.github.io/mijnservices-components/react',
+    },
+  },
 };
 
 export default config;

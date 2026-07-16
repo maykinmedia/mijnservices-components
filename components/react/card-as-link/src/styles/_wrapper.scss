@@ -1,0 +1,16 @@
+.mijnservices-card-as-link__wrapper {
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-direction: var(--mijnservices-card-as-link-wrapper-flex-direction, column);
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: var(--mijnservices-card-as-link-wrapper-gap, 0.5rem);
+  border-radius: var(--mijnservices-card-as-link-border-radius, 0.5rem);
+  padding-block-start: var(--mijnservices-card-as-link-wrapper-padding-block-start, 1rem);
+  padding-block-end: var(--mijnservices-card-as-link-wrapper-padding-block-end, 1rem);
+  padding-inline-start: var(--mijnservices-card-as-link-wrapper-padding-inline-start, 1rem);
+  padding-inline-end: var(--mijnservices-card-as-link-wrapper-padding-inline-end, 1rem);
+  background: transparent;
+  perspective: 1800px; /* dient als containing block voor __background (position: absolute) */
+}

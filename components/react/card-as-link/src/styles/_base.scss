@@ -1,0 +1,131 @@
+@mixin list-view {
+  --mijnservices-card-as-link-height: none;
+  --mijnservices-card-as-link-background-color: none;
+  --mijnservices-card-as-link-padding-block-start: 0px;
+  --mijnservices-card-as-link-border-style: var(--mijnservices-card-as-link-list-border-style);
+  --mijnservices-card-as-link-border-width: var(--mijnservices-card-as-link-list-border-width);
+  --mijnservices-card-as-link-border-color: var(--mijnservices-card-as-link-list-border-color);
+  --mijnservices-card-as-link-before-display: none;
+  --mijnservices-card-as-link-wrapper-gap: var(--mijnservices-card-as-link-list-wrapper-gap);
+  --mijnservices-card-as-link-wrapper-flex-direction: var(--mijnservices-card-as-link-list-wrapper-flex-direction);
+  --mijnservices-card-as-link-wrapper-padding-block-start: var(
+    --mijnservices-card-as-link-list-wrapper-padding-block-start
+  );
+  --mijnservices-card-as-link-wrapper-padding-block-end: var(
+    --mijnservices-card-as-link-list-wrapper-padding-block-end
+  );
+  --mijnservices-card-as-link-wrapper-padding-inline-start: var(
+    --mijnservices-card-as-link-list-wrapper-padding-inline-start
+  );
+  --mijnservices-card-as-link-wrapper-padding-inline-end: var(
+    --mijnservices-card-as-link-list-wrapper-padding-inline-end
+  );
+  --mijnservices-card-as-link-background-background-color: none;
+  --mijnservices-card-as-link-decoration-folder-hover-background-color: none;
+  --mijnservices-card-as-link-decoration-folder-active-background-color: none;
+  --mijnservices-card-as-link-hover-background-color: var(
+    --mijnservices-card-as-link-list-hover-background-color,
+    #f5f5f5
+  );
+  --mijnservices-card-as-link-active-background-color: var(
+    --mijnservices-card-as-link-list-active-background-color,
+    #ebebeb
+  );
+  --mijnservices-card-as-link-title-color: var(--mijnservices-card-as-link-list-title-color);
+  --mijnservices-card-as-link-title-font-size: var(--mijnservices-card-as-link-list-title-font-size);
+  --mijnservices-card-as-link-subtitle-color: var(--mijnservices-card-as-link-list-subtitle-color);
+  --mijnservices-card-as-link-footer-gap: var(--mijnservices-card-as-link-list-footer-gap);
+  --mijnservices-card-as-link-context-color: var(--mijnservices-card-as-link-list-context-color);
+}
+
+.mijnservices-card-as-link {
+  inline-size: 100%;
+  block-size: var(--mijnservices-card-as-link-height, auto);
+  background: var(--mijnservices-card-as-link-background-color, #fff);
+  padding-block-start: var(--mijnservices-card-as-link-padding-block-start, 20px);
+  border-radius: var(--mijnservices-card-as-link-border-radius, 0.5rem);
+  border-block-end-style: var(--mijnservices-card-as-link-border-style, none);
+  border-block-end-width: var(--mijnservices-card-as-link-border-width, 0);
+  border-block-end-color: var(--mijnservices-card-as-link-border-color, none);
+  position: relative;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus-within {
+    cursor: pointer;
+    background: var(
+      --mijnservices-card-as-link-hover-background-color,
+      var(--mijnservices-card-as-link-background-color, #fff)
+    );
+
+    .mijnservices-card-as-link__action {
+      color: var(--mijnservices-card-as-link-action-active-color, var(--mijnservices-card-as-link-action-color));
+    }
+  }
+
+  &:active {
+    background: var(
+      --mijnservices-card-as-link-active-background-color,
+      var(--mijnservices-card-as-link-background-color, #fff)
+    );
+  }
+
+  &::before {
+    position: absolute;
+    inset-block-start: 8px;
+    inset-inline-end: 8px;
+    display: var(--mijnservices-card-as-link-before-display, block);
+    inline-size: 50%;
+    block-size: 20px;
+    content: "";
+    border-start-end-radius: var(--mijnservices-card-as-link-border-radius, 0.5rem);
+    background: var(--mijnservices-card-as-link-paper-color, #fff);
+  }
+
+  @media (width <= 480px) {
+    @include list-view;
+
+    --mijnservices-card-as-link-list-wrapper-flex-direction: column;
+  }
+
+  &--list {
+    @include list-view;
+  }
+
+  &--archived {
+    --mijnservices-card-as-link-background-color: var(--mijnservices-card-as-link-archived-background-color);
+    --mijnservices-card-as-link-color: var(--mijnservices-card-as-link-archived-color);
+    --mijnservices-card-as-link-background-background-color: var(
+      --mijnservices-card-as-link-archived-background-background-color
+    );
+    --mijnservices-card-as-link-title-color: var(--mijnservices-card-as-link-archived-title-color);
+    --mijnservices-card-as-link-subtitle-color: var(--mijnservices-card-as-link-archived-subtitle-color);
+    --mijnservices-card-as-link-context-color: var(--mijnservices-card-as-link-archived-context-color);
+    --mijnservices-card-as-link-action-color: var(--mijnservices-card-as-link-archived-action-color);
+    --mijnservices-card-as-link-action-active-color: var(--mijnservices-card-as-link-archived-action-color);
+
+    &:hover,
+    &:focus-within {
+      background: var(
+        --mijnservices-card-as-link-archived-hover-background-color,
+        var(--mijnservices-card-as-link-archived-background-color)
+      );
+    }
+
+    &:active {
+      background: var(
+        --mijnservices-card-as-link-archived-active-background-color,
+        var(--mijnservices-card-as-link-archived-background-color)
+      );
+    }
+  }
+
+  &--focus,
+  &:focus-within {
+    outline: var(--mijnservices-focus-border, 2px dotted #154273);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

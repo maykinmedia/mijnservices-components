@@ -1,18 +1,18 @@
 import './styles/index.scss';
 import React, { AnchorHTMLAttributes, ComponentType } from 'react';
-import Base from './CaseCardBase';
-import Wrapper from './CaseCardWrapper';
-import Background from './CaseCardBackground';
-import Context from './CaseCardContext';
-import Footer from './CaseCardFooter';
-import Action from './CaseCardAction';
+import Base from './CardAsLinkBase';
+import Wrapper from './CardAsLinkWrapper';
+import Background from './CardAsLinkBackground';
+import Context from './CardAsLinkContext';
+import Footer from './CardAsLinkFooter';
+import Action from './CardAsLinkAction';
 
-export type CaseCardAppearance = 'default' | 'archived' | 'list';
+export type CardAsLinkAppearance = 'default' | 'archived' | 'list';
 
 /** Alleen echte heading-niveaus toestaan, nooit h1 (die hoort bij de pagina zelf) */
-export type CaseCardHeadingLevel = 2 | 3 | 4 | 5 | 6;
+export type CardAsLinkHeadingLevel = 2 | 3 | 4 | 5 | 6;
 
-export interface CaseCardProps {
+export interface CardAsLinkProps {
   /** Klein tekstregeltje boven de titel, bijv. een status-label */
   eyebrow?: string;
   title: string;
@@ -22,15 +22,15 @@ export interface CaseCardProps {
    * Zet deze prop als de titel ook echt een kopje in de pagina-structuur moet zijn,
    * bijvoorbeeld headingLevel={2} voor een <h2>.
    */
-  headingLevel?: CaseCardHeadingLevel;
+  headingLevel?: CardAsLinkHeadingLevel;
   context?: React.ReactNode;
   href?: string;
-  appearance?: CaseCardAppearance;
+  appearance?: CardAsLinkAppearance;
   /** Voor projecten die hun eigen Link-component (bijv. react-router) willen injecteren */
   Link?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>;
 }
 
-export const CaseCard = ({
+export const CardAsLink = ({
   eyebrow,
   title,
   subTitle,
@@ -39,7 +39,7 @@ export const CaseCard = ({
   href,
   appearance = 'default',
   Link,
-}: CaseCardProps) => {
+}: CardAsLinkProps) => {
   const TitleTag = headingLevel ? (`h${headingLevel}` as const) : 'p';
 
   return (
@@ -47,17 +47,17 @@ export const CaseCard = ({
       <Wrapper>
         <Background />
         <div>
-          {eyebrow && <p className="mijnservices-case-card__eyebrow">{eyebrow}</p>}
+          {eyebrow && <p className="mijnservices-card-as-link__eyebrow">{eyebrow}</p>}
 
-          <TitleTag className="mijnservices-case-card__title">{title}</TitleTag>
+          <TitleTag className="mijnservices-card-as-link__title">{title}</TitleTag>
 
-          {subTitle && <p className="mijnservices-case-card__subtitle">{subTitle}</p>}
+          {subTitle && <p className="mijnservices-card-as-link__subtitle">{subTitle}</p>}
         </div>
 
         <Footer>
           <Context>{context}</Context>
           <Action aria-label={title} href={href} Action={Link}>
-            <span aria-hidden="true" className="mijnservices-case-card__arrow">
+            <span aria-hidden="true" className="mijnservices-card-as-link__arrow">
               →
             </span>
           </Action>
@@ -67,4 +67,4 @@ export const CaseCard = ({
   );
 };
 
-export default CaseCard;
+export default CardAsLink;

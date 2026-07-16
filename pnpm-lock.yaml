@@ -73,7 +73,7 @@ importers:
         specifier: ^5.0.2
         version: 5.0.2(@microsoft/api-extractor@7.58.9(@types/node@22.20.1))(esbuild@0.27.7)(rolldown@1.0.3)(rollup@4.62.2)(typescript@5.9.3)(vite@8.0.16(@types/node@22.20.1)(esbuild@0.27.7)(sass@1.100.0))
 
-  components/react/case-card:
+  components/react/card-as-link:
     dependencies:
       clsx:
         specifier: ^2.1.1

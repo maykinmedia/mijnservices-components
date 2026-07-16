@@ -1,20 +1,20 @@
 {
-  "name": "@mijnservices/case-card",
+  "name": "@mijnservices/card-as-link",
   "version": "0.1.0",
-  "description": "React CaseCard component for the MijnServices component library",
+  "description": "React CardAsLink component for the MijnServices component library",
   "license": "EUPL-1.2",
   "author": "Maykin Media",
   "type": "module",
-  "main": "./dist/case-card.cjs",
-  "module": "./dist/case-card.js",
+  "main": "./dist/card-as-link.cjs",
+  "module": "./dist/card-as-link.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/case-card.js",
-      "require": "./dist/case-card.cjs"
+      "import": "./dist/card-as-link.js",
+      "require": "./dist/card-as-link.cjs"
     },
-    "./index.css": "./dist/case-card.css"
+    "./index.css": "./dist/card-as-link.css"
   },
   "files": [
     "dist"

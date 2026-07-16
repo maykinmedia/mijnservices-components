@@ -1,10 +1,16 @@
 ## Getting started with mijnservices-components
 
-[![Storybook](https://img.shields.io/badge/storybook-live-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components)
+[![Storybook — Web Components](https://img.shields.io/badge/storybook-web_components-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components) [![Storybook — React](https://img.shields.io/badge/storybook-react-FF4785.svg?logo=storybook)](https://maykinmedia.github.io/mijnservices-components/react)
 
-[NPMJS →](https://www.npmjs.com/package/@mijnservices/plan-card)
+Work in Progress: experimental MijnServices components based on the NL Design System architecture.
 
-Work in Progress: experimental MijnServices web components based on the NL Design System architecture.
+### Packages
+
+| Package                                                                                        | Version                                                                                                                               | Type          | Storybook                                                                                                 |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| [`@mijnservices/plan-card`](https://www.npmjs.com/package/@mijnservices/plan-card)             | [![npm](https://img.shields.io/npm/v/@mijnservices/plan-card.svg)](https://www.npmjs.com/package/@mijnservices/plan-card)             | Web Component | [Docs](https://maykinmedia.github.io/mijnservices-components/?path=/docs/components-plancard--docs)       |
+| [`@mijnservices/section-wrapper`](https://www.npmjs.com/package/@mijnservices/section-wrapper) | [![npm](https://img.shields.io/npm/v/@mijnservices/section-wrapper.svg)](https://www.npmjs.com/package/@mijnservices/section-wrapper) | Web Component | [Docs](https://maykinmedia.github.io/mijnservices-components/?path=/docs/components-sectionwrapper--docs) |
+| [`@mijnservices/card-as-link`](https://www.npmjs.com/package/@mijnservices/card-as-link)       | [![npm](https://img.shields.io/npm/v/@mijnservices/card-as-link.svg)](https://www.npmjs.com/package/@mijnservices/card-as-link)       | React         | [Docs](https://maykinmedia.github.io/mijnservices-components/react/?path=/docs/react-cardaslink--docs)    |
 
 ```bash
 pnpm install
