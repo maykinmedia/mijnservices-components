@@ -72,22 +72,30 @@ mijnservices-components/
 
 ### Lit
 
-Components are built with [Lit](https://lit.dev), a lightweight library for web components. Lit is a dependency of each component package, not of the monorepo root. Consuming a component does not require Lit, React, or any particular framework - every component compiles down to a standard Custom Element (`customElements.define(...)`), usable from plain HTML, React, Vue, Angular, or Svelte alike. The `/react` export exists specifically to smooth over known gaps in how React (pre-19) handles custom element properties and events; other frameworks can consume the custom element directly without a wrapper.
+Components under `components/` (not `components/react/`) are built with [Lit](https://lit.dev), a lightweight library for web components. Lit is a dependency of each component package, not of the monorepo root. Consuming a component does not require Lit, React, or any particular framework - every component compiles down to a standard Custom Element (`customElements.define(...)`), usable from plain HTML, React, Vue, Angular, or Svelte alike. The `/react` export exists specifically to smooth over known gaps in how React (pre-19) handles custom element properties and events; other frameworks can consume the custom element directly without a wrapper.
 
 ### Shadow DOM
 
-All components use Shadow DOM (the Lit default). This means component styles are fully isolated and cannot be overridden with external CSS selectors. Theming is done exclusively via CSS custom properties (design tokens), for example `--mijnservices-plan-card-background-color`.
+All Lit components use Shadow DOM (the Lit default). This means component styles are fully isolated and cannot be overridden with external CSS selectors. Theming is done exclusively via CSS custom properties (design tokens), for example `--mijnservices-plan-card-background-color`.
 
 ### React wrapper
 
-The React variant is generated with [`@lit/react`](https://lit.dev/docs/frameworks/react/), which wraps the web component in a type-safe React component. React itself is a peer dependency - consumers provide their own React installation.
+The React 'simple wrapper' variant of a Lit component is generated with [`@lit/react`](https://lit.dev/docs/frameworks/react/), which wraps the web component in a type-safe React component. React itself is a peer dependency - consumers provide their own React installation.
+
+### React (native)
+
+Components under `components/react/` are plain React components - no Lit, no custom element registration, no Shadow DOM. This is a deliberate second pattern alongside the web-component packages, for cases where a native React implementation is preferable (e.g. easier ref forwarding, no custom-element hydration quirks in frameworks like Next.js). React and ReactDOM are peer dependencies, same as the wrapped Lit components.
+
+Because there's no Shadow DOM, styling is scoped by class name convention rather than by the browser - each component ships plain CSS classes (`.mijnservices-{component}`, `.mijnservices-{component}__title`, etc.) following [BEM](https://nldesignsystem.nl/handboek/developer/css-conventie/), themed via the same CSS custom property pattern as the Lit components (`--mijnservices-{component}-{property}`). All positioning and spacing properties use CSS logical properties (`inline-size`, `inset-block-start`, `padding-inline-end`, etc.) rather than physical ones, so consumers can safely apply their own RTL/LTR-aware themes.
 
 ### CSS and SCSS
 
-Each component ships:
+Each Lit component ships:
 
 - `_mixin.scss` - SCSS mixins that can be applied to any selector, including Shadow DOM (`:host`)
 - `index.scss` - ready-to-use CSS classes (`.mijnservices-{component}`, `.mijnservices-{component}__heading` etc.)
+
+React components ship a single `index.scss` with the same class and token conventions, without the `:host`-oriented mixin (not applicable outside Shadow DOM).
 
 This follows the [NL Design System CSS conventions](https://nldesignsystem.nl/handboek/developer/css-conventie/).
 
@@ -100,25 +108,30 @@ Tokens follow the pattern `--mijnservices-{component}-{property}`, for example:
 ```css
 --mijnservices-plan-card-background-color
 --mijnservices-section-wrapper-heading-font-size
+--mijnservices-card-as-link-decoration-folder-hover-background-color
 ```
 
 ### Vite
 
-Each component has its own `vite.config.ts` for building. Vite is a build tool - it is not shipped to consumers. The config builds both the web component and the React wrapper as separate ES module entry points, with Lit and React marked as external dependencies.
+Each component has its own `vite.config.ts` for building. Vite is a build tool - it is not shipped to consumers. For Lit components, the config builds both the web component and the React wrapper as separate ES module entry points, with Lit and React marked as external dependencies. For React components, the config builds a single ES module + CommonJS entry point, with React and ReactDOM marked as external dependencies.
 
 ## Versioning and releasing
 
 This repo uses [Changesets](https://github.com/changesets/changesets) to manage independent versioning per package.
 
-After making a change to a component, run:
+After making a change to a component, run locally:
 
 ```bash
 pnpm changeset
 ```
 
-and commit the generated file under `.changeset/` alongside your change.
+This will show an interactive terminal where you can select the canhged components with `ENTER1` and skip the 'major' release if not needed and just select the 'minor' release.
 
-To cut a release, run `pnpm changeset version` to apply pending changesets (this bumps each affected package's `package.json` and writes its `CHANGELOG.md`), commit the result, then push any git tag to `main`. The tag itself doesn't need to match any package's version - it's only a trigger for CI, which attempts to publish every package under `components/*/` and skips any whose current version is already live on npm.
+Commit the generated file under `.changeset/` alongside your change.
+
+To start a component release, run `pnpm changeset version` to apply pending changesets (this bumps each affected package's `package.json` and writes its `CHANGELOG.md`), commit the result, then push any git tag to `main`. The tag itself doesn't need to match any package's version - it's only a trigger for CI, which attempts to publish every package under `components/*/` and `components/react/*/`, and skips any whose current version is already live on npm.
+
+A brand-new package's first publish needs to always be done manually (`npm publish --access public` from the package folder) with an npm account that has org access, since npm's Trusted Publishing (OIDC, used by CI) can only be configured for a package that already exists on the registry. Once that first publish is done and a Trusted Publisher is registered on npmjs.com for the package, subsequent releases go through CI automatically via `pnpm changeset` + a git tag.
 
 ## Contribute
 
