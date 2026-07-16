@@ -1,0 +1,31 @@
+.mijnservices-card-as-link__action {
+  display: block;
+  margin-inline-start: auto;
+  color: var(--mijnservices-card-as-link-action-color, #154273);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::before {
+    --mijnservices-card-as-link-action-before-padding-block-start: calc(
+      var(--mijnservices-card-as-link-padding-block-start, 0) +
+        var(--mijnservices-card-as-link-wrapper-padding-block-start, 0)
+    );
+
+    content: "";
+    position: absolute;
+    inset-block-start: calc(0px - var(--mijnservices-card-as-link-padding-block-start, 0));
+    inset-block-end: var(--mijnservices-card-as-link-action-before-inset-block-end, 0);
+    inset-inline-start: var(--mijnservices-card-as-link-action-before-inset-inline-start, 0);
+    inset-inline-end: var(--mijnservices-card-as-link-action-before-inset-inline-end, 0);
+    padding-block-start: var(--mijnservices-card-as-link-action-before-padding-block-start);
+    padding-block-end: var(--mijnservices-card-as-link-wrapper-padding-block-end, 0);
+    padding-inline-start: var(--mijnservices-card-as-link-wrapper-padding-inline-start, 0);
+    padding-inline-end: var(--mijnservices-card-as-link-wrapper-padding-inline-end, 0);
+  }
+
+  svg {
+    display: block !important;
+  }
+}
