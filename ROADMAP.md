@@ -57,3 +57,19 @@ Elk component heeft een vite.config.ts die de bronbestanden (src/) omzet naar ee
 ## React toevoegen
 
 Om deze repositiry als werkend voorbeeld te laten dienen, voegen we React toe zodat er ook daadwerkelijke React componenten gebouwd kunnen worden (niet allee nals wrapper).
+
+Gedaan:
+
+## Background
+
+Until now, the `mijnservices-components` monorepo only contained Lit web components (`plan-card`, `section-wrapper`). The goal was to add a native React component alongside them: a rebuild of the Den Haag `CaseCard`, improved with an `eyebrow` paragraph and the option to render the title as either a semantic heading or a plain paragraph (`headingLevel`).
+
+## What was done
+
+- **Structure:** a separate `components/react/` folder next to the web components, with `pnpm-workspace.yaml` extended to include `components/react/*`.
+- **Tooling:** a dedicated tsconfig, Vite 8 with `@vitejs/plugin-react` v6, and a second, standalone React Storybook (`.storybook-react/`) linked to the web components Storybook through composition.
+- **Styling:** the Den Haag SCSS was adopted, but using only logical properties and `--mijnservices-*` tokens. The hover animation was removed and replaced with hover and active color tokens.
+- **Rename and release:** the component was renamed from `case-card` to `card-as-link`, the CI publish step was updated to handle nested packages, and the README was expanded.
+- **First publish:** published to npm via Trusted Publishing. The last step was pushing the `0.1.6` tag.
+
+
