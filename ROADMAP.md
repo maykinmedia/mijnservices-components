@@ -71,5 +71,3 @@ Until now, the `mijnservices-components` monorepo only contained Lit web compone
 - **Styling:** the Den Haag SCSS was adopted, but using only logical properties and `--mijnservices-*` tokens. The hover animation was removed and replaced with hover and active color tokens.
 - **Rename and release:** the component was renamed from `case-card` to `card-as-link`, the CI publish step was updated to handle nested packages, and the README was expanded.
 - **First publish:** published to npm via Trusted Publishing. The last step was pushing the `0.1.6` tag.
-
-
