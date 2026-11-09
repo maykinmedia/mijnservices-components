@@ -1,4 +1,4 @@
-/* .storybook-react/denhaag-comparison-theme.css — ALLEEN voor lokale visuele vergelijking, niet publiceren */
+/* For local Storybook only, not for publishing */
 :root {
   --mijnservices-card-as-link-height: 240px;
   --mijnservices-card-as-link-border-radius: 3px;
@@ -22,11 +22,11 @@
   --mijnservices-card-as-link-action-color: hsl(207, 80%, 35%); /* blue.3 */
   --mijnservices-card-as-link-action-active-color: hsl(207, 87%, 27%); /* blue.4 */
 
-  /* hover/active — kaart zelf (card-as-link.hover / card-as-link.active) */
+  /* hover/active - kaart zelf (card-as-link.hover / card-as-link.active) */
   --mijnservices-card-as-link-hover-background-color: hsl(210, 64%, 76%); /* blue.2, ~5% donkerder */
   --mijnservices-card-as-link-active-background-color: hsl(210, 64%, 70%); /* blue.2, ~13% donkerder */
 
-  /* hover/active — mapje-vlak (card-as-link.decoration.folder.hover / .active) */
+  /* hover/active - mapje-vlak (card-as-link.decoration.folder.hover / .active) */
   --mijnservices-card-as-link-decoration-folder-hover-background-color: hsl(208, 76%, 88%); /* blue.1, ~4% donkerder */
   --mijnservices-card-as-link-decoration-folder-active-background-color: hsl(
     208,
@@ -42,11 +42,11 @@
   --mijnservices-card-as-link-archived-context-color: hsl(0, 0%, 29%); /* grey.4 */
   --mijnservices-card-as-link-archived-action-color: hsl(0, 0%, 29%); /* grey.4 */
 
-  /* hover/active — archived-variant, kaart zelf */
+  /* hover/active - archived-variant, kaart zelf */
   --mijnservices-card-as-link-archived-hover-background-color: hsl(0, 0%, 78%); /* grey.2, ~4% donkerder */
   --mijnservices-card-as-link-archived-active-background-color: hsl(0, 0%, 72%); /* grey.2, ~10% donkerder */
 
-  /* hover/active — archived-variant, mapje-vlak */
+  /* hover/active - archived-variant, mapje-vlak */
   --mijnservices-card-as-link-archived-decoration-folder-hover-background-color: hsl(
     0,
     0%,

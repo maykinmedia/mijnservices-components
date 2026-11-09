@@ -1,0 +1,107 @@
+@use "mixins" as *;
+
+.mijn-chat-message-form {
+  &__error {
+    font-family: var(--mijn-chat-message-form-error-font-family);
+    font-size: var(--mijn-chat-message-form-error-font-size);
+    line-height: var(--mijn-chat-message-form-error-line-height);
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+
+    &:not(:empty) {
+      margin-block-end: var(--mijn-chat-message-form-error-margin-block-end);
+    }
+  }
+
+  &__field {
+    align-items: flex-start;
+    background-color: var(--mijn-chat-message-form-field-background-color);
+    border-color: var(--mijn-chat-message-form-field-border-color);
+    border-radius: var(--mijn-chat-message-form-field-border-radius);
+    border-style: var(--mijn-chat-message-form-field-border-style);
+    border-width: var(--mijn-chat-message-form-field-border-width);
+    display: flex;
+    gap: var(--mijn-chat-message-form-field-gap);
+    padding-block-end: var(--mijn-chat-message-form-field-padding-block-end);
+    padding-block-start: var(--mijn-chat-message-form-field-padding-block-start);
+    padding-inline-end: var(--mijn-chat-message-form-field-padding-inline-end);
+    padding-inline-start: var(--mijn-chat-message-form-field-padding-inline-start);
+
+    // Focus outline on the whole field only when the textarea has focus
+    &:has(.mijn-chat-message-form__textarea:focus-visible) {
+      outline-color: var(--mijn-chat-message-form-focus-outline-color);
+      outline-offset: 2px;
+      outline-style: solid;
+      outline-width: var(--mijn-chat-message-form-focus-outline-width);
+    }
+  }
+
+  // Textarea and selected file stacked
+  &__input {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+
+  &__textarea {
+    background-color: var(--mijn-chat-message-form-textarea-background-color);
+    border-color: var(--mijn-chat-message-form-textarea-border-color);
+    border-radius: var(--mijn-chat-message-form-textarea-border-radius);
+    border-style: var(--mijn-chat-message-form-textarea-border-style);
+    border-width: var(--mijn-chat-message-form-textarea-border-width);
+    color: var(--mijn-chat-message-form-textarea-color);
+    font-family: var(--mijn-chat-message-form-textarea-font-family);
+    font-size: var(--mijn-chat-message-form-textarea-font-size);
+    font-weight: var(--mijn-chat-message-form-textarea-font-weight);
+    line-height: var(--mijn-chat-message-form-textarea-line-height);
+    min-block-size: var(--mijn-chat-message-form-textarea-min-block-size);
+    padding-block-end: var(--mijn-chat-message-form-textarea-padding-block-end);
+    padding-block-start: var(--mijn-chat-message-form-textarea-padding-block-start);
+    padding-inline-end: var(--mijn-chat-message-form-textarea-padding-inline-end);
+    padding-inline-start: var(--mijn-chat-message-form-textarea-padding-inline-start);
+    resize: vertical;
+
+    &:focus {
+      outline: none; // focus is shown on __field via :has()
+    }
+
+    &::placeholder {
+      color: var(--mijn-chat-message-form-textarea-placeholder-color);
+      opacity: 1;
+    }
+  }
+
+  &__preview:not(:empty) {
+    margin-block-start: var(--mijn-chat-message-form-preview-margin-block-start);
+  }
+
+  &__actions {
+    align-self: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--mijn-chat-message-form-actions-gap);
+  }
+
+  // Buttons are NLDS Buttons (purpose="secondary"), styled via --nl-button-* tokens
+
+  // Mobile: icon-only submit button
+  &__submit.nl-button {
+    @include mobile {
+      padding-inline-end: var(--nl-button-icon-only-padding-inline-end);
+      padding-inline-start: var(--nl-button-icon-only-padding-inline-start);
+
+      .nl-button__label {
+        @include visually-hidden;
+      }
+    }
+  }
+
+  &__icon {
+    block-size: var(--mijn-chat-message-form-icon-size);
+    flex-shrink: 0;
+    inline-size: var(--mijn-chat-message-form-icon-size);
+  }
+}

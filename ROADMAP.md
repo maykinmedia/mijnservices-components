@@ -2,19 +2,20 @@
 
 ## Publiceren
 
-- **Storybook op GitHub Pages** ✅ — live op [maykinmedia.github.io/mijnservices-components](https://maykinmedia.github.io/mijnservices-components) via GitHub Actions.
-- **npm publiceren** ✅ — onder maykinmedia via de `@mijnservices` npm organisatie met trusted publishing via GitHub Actions. Consumers kunnen `npm install @mijnservices/plan-card` doen.
-- **Changesets** — opzetten van [`@changesets/cli`](https://github.com/changesets/changesets) voor geautomatiseerd versiebeheer in de monorepo. Hiermee krijgt elk component zijn eigen versietag (bijv. `@mijnservices/plan-card@0.2.0`) en worden alleen gewijzigde packages gepubliceerd bij een release.
+- **Storybook op GitHub Pages** ✅ - live op [maykinmedia.github.io/mijnservices-components](https://maykinmedia.github.io/mijnservices-components) via GitHub Actions.
+- **npm publiceren** ✅ - onder maykinmedia via de `@mijnservices` npm organisatie met trusted publishing via GitHub Actions. Consumers kunnen `npm install @mijnservices/plan-card` doen.
+- **Changesets** - opzetten van [`@changesets/cli`](https://github.com/changesets/changesets) voor geautomatiseerd versiebeheer in de monorepo. Hiermee krijgt elk component zijn eigen versietag (bijv. `@mijnservices/plan-card@0.2.0`) en worden alleen gewijzigde packages gepubliceerd bij een release.
 
 ## Nieuwe packages
 
-- **`@mijnservices/tokens`** — gedeelde design tokens als apart npm package, toe te voegen zodra er een tweede component bij komt. Voorkomt dat kleuren en spacing per component herhaald worden. Consumers kunnen dan één tokens package installeren en alle componenten krijgen automatisch de juiste waarden.
+- **`@mijnservices/tokens`** - gedeelde design tokens als apart npm package, toe te voegen zodra er een tweede component bij komt. Voorkomt dat kleuren en spacing per component herhaald worden. Consumers kunnen dan één tokens package installeren en alle componenten krijgen automatisch de juiste waarden.
+- De prefix overal verandere nvan 'mijnservices' naar 'mijn'
 
 ## Per component nog uitbreiden
 
-- **`plan-card.test.ts`** — unit tests met Vitest om te controleren dat de component correct rendert, properties werken, en de slot gevuld kan worden.
-- **`plan-card.mdx`** — documentatie in Markdown naast de stories, zoals Utrecht dat doet: wanneer gebruik je de component, wanneer niet, toegankelijkheidsnoten, en voorbeelden.
-- **Slots uitbreiden** — naarmate gebruikers meer flexibiliteit nodig hebben (badge, status, avatar, extra knop) slots toevoegen in plaats van nieuwe properties.
+- **`plan-card.test.ts`** - unit tests met Vitest om te controleren dat de component correct rendert, properties werken, en de slot gevuld kan worden.
+- **`plan-card.mdx`** - documentatie in Markdown naast de stories, zoals Utrecht dat doet: wanneer gebruik je de component, wanneer niet, toegankelijkheidsnoten, en voorbeelden.
+- **Slots uitbreiden** - naarmate gebruikers meer flexibiliteit nodig hebben (badge, status, avatar, extra knop) slots toevoegen in plaats van nieuwe properties.
 
 ## Nieuwe componenten
 
