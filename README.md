@@ -40,10 +40,16 @@ Each component builds to its own `dist/` folder with:
 
 View all components live at [maykinmedia.github.io/mijnservices-components](https://maykinmedia.github.io/mijnservices-components).
 
-Run Storybook locally:
+Run entire Storybook locally:
 
 ```bash
 pnpm storybook
+```
+
+Or run the React instance separately:
+
+```bash
+pnpm storybook:react
 ```
 
 ## Consuming components
