@@ -26,9 +26,11 @@ export class MijnservicesPlanCard extends LitElement {
           </div>
           <slot></slot>
           <div class="mijnservices-plan-card__footer">
-            ${this.date
-              ? html`<time class="mijnservices-plan-card__date" datetime="${this.dateTime}">${this.date}</time>`
-              : html`<span></span>`}
+            ${
+              this.date
+                ? html`<time class="mijnservices-plan-card__date" datetime="${this.dateTime}">${this.date}</time>`
+                : html`<span></span>`
+            }
             <a class="mijnservices-plan-card__action" href="${this.href}" aria-label="${this.ariaLabel}">
               <svg
                 class="mijnservices-plan-card__arrow"
