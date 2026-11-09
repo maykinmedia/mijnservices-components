@@ -1,0 +1,255 @@
+<section class="mijnservices-messages" aria-labelledby="mijnservices-messages-title">
+  <!-- Header van totale component -->
+  <header class="mijnservices-messages__header">
+    <div class="mijnservices-messages__header-main">
+      <h2 class="mijnservices-messages__title" id="mijnservices-messages-title">Status van mijn zaak</h2>
+      <p class="mijnservices-messages__meta">
+        Gesprek gestart op
+        <time datetime="2026-08-31">31-08-2026</time>
+      </p>
+    </div>
+    <p class="mijnservices-messages__case-number">Zaaknummer: 4503-2026</p>
+  </header>
+
+  <!-- Chatgeschiedenis: role="log" is impliciet aria-live="polite" -->
+  <div
+    class="mijnservices-messages__body"
+    id="mijnservices-messages-log"
+    role="log"
+    aria-label="Berichten"
+    tabindex="0"
+  >
+    <ol class="mijnservices-messages__list">
+      <li class="mijnservices-messages__item">
+        <article
+          class="mijnservices-message mijnservices-message--resident"
+          aria-labelledby="mijnservices-message-1-author mijnservices-message-1-time"
+        >
+          <header class="mijnservices-message__author" id="mijnservices-message-1-author">
+            <span class="mijnservices-messages__visually-hidden">Bericht van </span>Jij
+          </header>
+          <div class="mijnservices-message__body">
+            <p class="mijnservices-message__text">
+              Hallo, ik heb een tijd geleden een aanvraag gedaan voor de witgoedregeling, maar sindsdien niets meer
+              gehoord. Ik zou graag een wasmachine willen kopen om weer te kunnen wassen. Kunt u mij laten weten wat de
+              status is?
+            </p>
+          </div>
+          <footer class="mijnservices-message__footer">
+            <span class="mijnservices-messages__visually-hidden">Verzonden op </span>
+            <time class="mijnservices-message__time" id="mijnservices-message-1-time" datetime="2026-07-12T13:30">
+              12-07-2026 - 13:30
+            </time>
+            <!-- Status als tekst, niet alleen via kleur of positie -->
+            <span class="mijnservices-message__status mijnservices-messages__visually-hidden">Status: verzonden</span>
+          </footer>
+        </article>
+      </li>
+
+      <li class="mijnservices-messages__item">
+        <article
+          class="mijnservices-message mijnservices-message--organization"
+          aria-labelledby="mijnservices-message-2-author mijnservices-message-2-time"
+        >
+          <header class="mijnservices-message__author" id="mijnservices-message-2-author">
+            <span class="mijnservices-messages__visually-hidden">Bericht van </span>Gemeente Voorbeeld
+          </header>
+          <div class="mijnservices-message__body">
+            <p class="mijnservices-message__text">
+              Hartelijk dank voor uw bericht. Wij hebben uw vraag in goede orde ontvangen.
+            </p>
+            <p class="mijnservices-message__text">
+              Wij streven ernaar om binnen 24 uur te reageren. Hebt u in de tussentijd aanvullende informatie of vragen?
+              Dan kunt u reageren op dit bericht.
+            </p>
+            <p class="mijnservices-message__text">
+              Met vriendelijke groet,<br />
+              Gemeente Voorbeeld
+            </p>
+          </div>
+          <footer class="mijnservices-message__footer">
+            <span class="mijnservices-messages__visually-hidden">Ontvangen op </span>
+            <time class="mijnservices-message__time" id="mijnservices-message-2-time" datetime="2026-07-13T09:30">
+              13/07/2026 - 09:30
+            </time>
+          </footer>
+        </article>
+      </li>
+
+      <!-- Eerste ongelezen bericht -->
+      <li class="mijnservices-messages__item mijnservices-messages__item--new">
+        <div class="mijnservices-messages__divider">
+          <span class="mijnservices-messages__divider-label">Nieuw bericht</span>
+        </div>
+
+        <article
+          class="mijnservices-message mijnservices-message--organization"
+          aria-labelledby="mijnservices-message-3-author mijnservices-message-3-time"
+        >
+          <header class="mijnservices-message__author" id="mijnservices-message-3-author">
+            <span class="mijnservices-messages__visually-hidden">Nieuw bericht van </span>Gemeente Voorbeeld
+          </header>
+          <div class="mijnservices-message__body">
+            <p class="mijnservices-message__text">
+              Om je aanvraag voor de witgoedregeling verder te kunnen beoordelen, hebben wij nog aanvullende informatie
+              nodig over je oude wasmachine. Kun je aangeven hoe oud de wasmachine is, wat het probleem ermee is en
+              waarom deze vervangen moet worden? Als je hiervan een foto of ander bewijs hebt, kun je deze ook toevoegen
+              aan het gesprek
+            </p>
+          </div>
+          <footer class="mijnservices-message__footer">
+            <span class="mijnservices-messages__visually-hidden">Ontvangen op </span>
+            <time class="mijnservices-message__time" id="mijnservices-message-3-time" datetime="2026-07-13T09:30">
+              13/07/2026 - 09:30
+            </time>
+          </footer>
+        </article>
+      </li>
+
+      <li class="mijnservices-messages__item">
+        <article
+          class="mijnservices-message mijnservices-message--resident"
+          aria-labelledby="mijnservices-message-4-author mijnservices-message-4-time"
+        >
+          <header class="mijnservices-message__author" id="mijnservices-message-4-author">
+            <span class="mijnservices-messages__visually-hidden">Bericht van </span>Jij
+          </header>
+          <div class="mijnservices-message__body">
+            <p class="mijnservices-message__text">Ja, hier is een foto van de wasmachine.</p>
+
+            <!-- Verstuurde bijlage: link naar het bestand -->
+            <a
+              class="mijnservices-message__attachment mijnservices-message-attachment"
+              href="https://placekittens.com/500/300"
+            >
+              <span class="mijnservices-message-attachment__image">
+                <img src="https://placekittens.com/500/300" alt="" />
+              </span>
+              <span class="mijnservices-message-attachment__file-data">
+                <span class="mijnservices-messages__visually-hidden">Bijlage: </span>
+                <span class="mijnservices-message-attachment__file-name">image-Portrait-with-a-very-long-name.png</span>
+                (<span class="mijnservices-message-attachment__file-type">png</span>,
+                <span class="mijnservices-message-attachment__file-size">228 kB</span>,
+                <span class="mijnservices-message-attachment__file-date">14-07-2026</span>)
+              </span>
+            </a>
+          </div>
+          <footer class="mijnservices-message__footer">
+            <span class="mijnservices-messages__visually-hidden">Verzonden op </span>
+            <time class="mijnservices-message__time" id="mijnservices-message-4-time" datetime="2026-07-14T10:30">
+              14-07-2026 - 10:30
+            </time>
+            <!-- Status als tekst, niet alleen via kleur of positie -->
+            <span class="mijnservices-message__status mijnservices-messages__visually-hidden">Status: verzonden</span>
+          </footer>
+        </article>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Nieuw bericht schrijven met formulier -->
+  <form
+    class="mijnservices-messages__form mijnservices-message-form"
+    method="post"
+    action="/inbox/"
+    enctype="multipart/form-data"
+    novalidate
+  >
+    <input type="hidden" name="csrfmiddlewaretoken" value="" />
+
+    <!-- Foutmeldingen: role="alert" (leeg laten tot er een fout is) -->
+    <p class="mijnservices-message-form__error" id="mijnservices-message-form-error" role="alert"></p>
+
+    <div class="mijnservices-message-form__field">
+      <!-- Textarea + gekozen bestand eronder -->
+      <div class="mijnservices-message-form__input">
+        <label
+          class="mijnservices-message-form__label mijnservices-messages__visually-hidden"
+          for="mijnservices-message-form-content"
+        >
+          Schrijf uw bericht
+        </label>
+        <textarea
+          class="mijnservices-message-form__textarea"
+          id="mijnservices-message-form-content"
+          name="content"
+          rows="2"
+          placeholder="Schrijf uw bericht"
+          aria-controls="mijnservices-messages-log"
+          aria-describedby="mijnservices-message-form-error"
+        ></textarea>
+
+        <!-- Gekozen bestand: nog niet verstuurd, dus geen link -->
+        <div class="mijnservices-message-form__preview" id="mijnservices-message-form-preview" aria-live="polite">
+          <div class="mijnservices-message-form__attachment mijnservices-message-attachment">
+            <span class="mijnservices-message-attachment__image">
+              <img src="https://placekittens.com/500/300" alt="" />
+            </span>
+            <span class="mijnservices-message-attachment__file-data">
+              <span class="mijnservices-messages__visually-hidden">Gekozen bijlage: </span>
+              <span class="mijnservices-message-attachment__file-name">image-Portrait-with-a-very-long-name.png</span>
+              (<span class="mijnservices-message-attachment__file-type">png</span>,
+              <span class="mijnservices-message-attachment__file-size">228 kB</span>,
+              <span class="mijnservices-message-attachment__file-date">14-07-2026</span>)
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mijnservices-message-form__actions">
+        <label class="mijnservices-message-form__upload" for="mijnservices-message-form-file">
+          <svg
+            class="mijnservices-message-form__icon"
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"
+            />
+          </svg>
+          <span class="mijnservices-messages__visually-hidden">Bijlage toevoegen</span>
+        </label>
+        <input
+          class="mijnservices-message-form__file mijnservices-messages__visually-hidden"
+          type="file"
+          id="mijnservices-message-form-file"
+          name="file"
+          aria-describedby="mijnservices-message-form-preview"
+          accept=".doc,.docx,.xls,.xlsx,.txt,.odt,.odf,.ods,.pdf,.jpg,.jpeg,.png"
+        />
+
+        <button class="mijnservices-message-form__submit" type="submit" aria-controls="mijnservices-messages-log">
+          <span class="mijnservices-message-form__submit-text">Versturen</span>
+          <svg
+            class="mijnservices-message-form__icon"
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Verzendstatus: role="status", bv. "Bericht wordt verzonden…" / "Bericht verzonden" -->
+    <p class="mijnservices-message-form__status mijnservices-messages__visually-hidden" role="status"></p>
+  </form>
+</section>
