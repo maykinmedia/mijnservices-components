@@ -1,0 +1,59 @@
+/* Attachment, shared by the chat message and the message form */
+
+.mijn-chat-message-attachment {
+  align-items: center;
+  background-color: var(--mijn-chat-message-attachment-background-color);
+  border-radius: var(--mijn-chat-message-attachment-border-radius);
+  color: var(--mijn-chat-message-attachment-color);
+  display: inline-flex;
+  font-family: var(--mijn-chat-message-attachment-font-family);
+  font-size: var(--mijn-chat-message-attachment-font-size);
+  gap: var(--mijn-chat-message-attachment-gap);
+  line-height: var(--mijn-chat-message-attachment-line-height);
+  max-inline-size: 100%;
+  padding-block-end: var(--mijn-chat-message-attachment-padding-block-end);
+  padding-block-start: var(--mijn-chat-message-attachment-padding-block-start);
+  padding-inline-end: var(--mijn-chat-message-attachment-padding-inline-end);
+  padding-inline-start: var(--mijn-chat-message-attachment-padding-inline-start);
+
+  // As a link (sent message): underline the file name
+  &:is(a) {
+    text-decoration: none;
+
+    .mijn-chat-message-attachment__file-name {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline-color: var(--mijn-chat-message-attachment-focus-outline-color);
+      outline-offset: 2px;
+      outline-style: solid;
+      outline-width: var(--mijn-chat-message-attachment-focus-outline-width);
+    }
+  }
+
+  &__image {
+    block-size: var(--mijn-chat-message-attachment-image-size);
+    border-radius: var(--mijn-chat-message-attachment-image-border-radius);
+    flex-shrink: 0;
+    inline-size: var(--mijn-chat-message-attachment-image-size);
+    overflow: hidden;
+
+    img {
+      block-size: 100%;
+      display: block;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    // No thumbnail (e.g. PDF): empty placeholder
+    &:empty {
+      background-color: var(--mijn-chat-message-attachment-image-placeholder-background-color);
+    }
+  }
+
+  &__file-data {
+    min-inline-size: 0;
+    overflow-wrap: break-word;
+  }
+}

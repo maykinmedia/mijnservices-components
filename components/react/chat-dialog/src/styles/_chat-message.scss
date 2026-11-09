@@ -1,0 +1,72 @@
+@use "mixins" as *;
+
+.mijn-chat-message {
+  // Internal var: set per variant, see also &--resident
+  --_mijn-chat-message-body-background-color: var(--mijn-chat-message-body-background-color);
+
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mijn-chat-message-gap);
+  max-inline-size: var(--mijn-chat-message-max-inline-size);
+
+  // Mobile: all full width
+  @include mobile {
+    align-self: stretch;
+    max-inline-size: none;
+  }
+
+  &--resident {
+    --_mijn-chat-message-body-background-color: var(--mijn-chat-message-resident-body-background-color);
+
+    align-self: flex-end;
+
+    @include mobile {
+      align-self: stretch;
+    }
+  }
+
+  &__author {
+    font-family: var(--mijn-chat-message-author-font-family);
+    font-size: var(--mijn-chat-message-author-font-size);
+    line-height: var(--mijn-chat-message-author-line-height);
+  }
+
+  &__body {
+    background-color: var(--_mijn-chat-message-body-background-color);
+    border-color: var(--mijn-chat-message-body-border-color);
+    border-radius: var(--mijn-chat-message-body-border-radius);
+    border-style: var(--mijn-chat-message-body-border-style);
+    border-width: var(--mijn-chat-message-body-border-width);
+    color: var(--mijn-chat-message-body-color);
+    // Match NLDS Paragraph color to the bubble for contrast
+    --nl-paragraph-color: var(--mijn-chat-message-body-color);
+    padding-block-end: var(--mijn-chat-message-body-padding-block-end);
+    padding-block-start: var(--mijn-chat-message-body-padding-block-start);
+    padding-inline-end: var(--mijn-chat-message-body-padding-inline-end);
+    padding-inline-start: var(--mijn-chat-message-body-padding-inline-start);
+  }
+
+  // This selector overrides NLDS Paragraph margins
+  &__text.nl-paragraph {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+
+    & + & {
+      margin-block-start: var(--mijn-chat-message-text-margin-block-start);
+    }
+  }
+
+  &__attachment {
+    margin-block-start: var(--mijn-chat-message-attachment-margin-block-start);
+  }
+
+  &__footer {
+    font-family: var(--mijn-chat-message-footer-font-family);
+    font-size: var(--mijn-chat-message-footer-font-size);
+    line-height: var(--mijn-chat-message-footer-line-height);
+    text-align: end;
+  }
+}
