@@ -17,7 +17,27 @@ npm install @mijnservices/messages
 ```tsx
 import { Messages } from "@mijnservices/messages/react";
 
-<Messages>[...]</Messages>;
+<Messages
+  title="Status van mijn zaak"
+  meta={
+    <>
+      Gesprek gestart op <time dateTime="2026-08-31">31-08-2026</time>
+    </>
+  }
+  caseNumber="Zaaknummer: 4503-2026"
+  form={<MessageForm action="/inbox/" method="post" encType="multipart/form-data" />}
+>
+  <MessagesItem>
+    <Message variant="resident" author="Jij" dateTime="…" time="…">
+      Hallo…
+    </Message>
+  </MessagesItem>
+  <MessagesItem isNew>
+    <Message variant="organization" author="Gemeente Voorbeeld" dateTime="…" time="…">
+      …
+    </Message>
+  </MessagesItem>
+</Messages>;
 ```
 
 ## Props / attributes

@@ -35,30 +35,17 @@
     }
   }
 
-  &__title {
-    font-family: var(--mijnservices-messages-title-font-family);
-    font-size: var(--mijnservices-messages-title-font-size);
-    line-height: var(--mijnservices-messages-title-line-height);
+  // Titel, datum en zaaknummer zijn NLDS Heading en Paragraph: hun lettertype komt uit de --nl-heading-* en --nl-paragraph-* tokens.
+  // Met .nl-heading/.nl-paragraph erbij wint deze margin van die van NLDS, ongeacht de volgorde van de CSS.
+  &__title.nl-heading {
     margin-block-end: var(--mijnservices-messages-title-margin-block-end);
     margin-block-start: 0;
     margin-inline-end: 0;
     margin-inline-start: 0;
   }
 
-  &__meta {
-    font-family: var(--mijnservices-messages-meta-font-family);
-    font-size: var(--mijnservices-messages-meta-font-size);
-    line-height: var(--mijnservices-messages-meta-line-height);
-    margin-block-end: 0;
-    margin-block-start: 0;
-    margin-inline-end: 0;
-    margin-inline-start: 0;
-  }
-
-  &__case-number {
-    font-family: var(--mijnservices-messages-case-number-font-family);
-    font-size: var(--mijnservices-messages-case-number-font-size);
-    line-height: var(--mijnservices-messages-case-number-line-height);
+  &__meta.nl-paragraph,
+  &__case-number.nl-paragraph {
     margin-block-end: 0;
     margin-block-start: 0;
     margin-inline-end: 0;

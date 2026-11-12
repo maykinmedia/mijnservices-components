@@ -115,6 +115,12 @@ importers:
       '@nl-design-system-candidate/button-react':
         specifier: ^1.1.0
         version: 1.1.0(@babel/runtime@7.29.13)(react@19.3.1)
+      '@nl-design-system-candidate/heading-react':
+        specifier: ^1.1.8
+        version: 1.1.8(@babel/runtime@7.29.13)(react@19.3.1)
+      '@nl-design-system-candidate/paragraph-react':
+        specifier: ^2.2.3
+        version: 2.2.3(@babel/runtime@7.29.13)(react@19.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -561,6 +567,24 @@ packages:
 
   '@nl-design-system-candidate/button-react@1.1.0':
     resolution: {integrity: sha512-Zi2QGpAq6/AWkL0hf9BNcNp8AQUV5yyDcKw7WDBuZ3W0ci/EF46ZfvntTbbBpHX09lYqS6F4Vf7hPGh1BdGxTg==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
+
+  '@nl-design-system-candidate/heading-css@2.0.0':
+    resolution: {integrity: sha512-z3SJ/wMwHkgM8RxULs5xVDEomCLM2kG6otDlLaPHBLJ3cF5ps2lC0JjvDHU2Vfz1ZHUozzb4eG4XntmRbsrXZQ==}
+
+  '@nl-design-system-candidate/heading-react@1.1.8':
+    resolution: {integrity: sha512-TfEmz1GVwwYVtfAMKecTMUVrJCUTZ7kOddviXJUvXHGJTsROsZODINkbFtruoHQRuTFKap12AB4oK+EvhPVMvQ==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
+
+  '@nl-design-system-candidate/paragraph-css@3.0.0':
+    resolution: {integrity: sha512-muu7/dFpaq99nsfNGvcQrXM+A19q2aOQC4fkMFkKep+U/jcJr2pl84hIFYtI5MBasdDGSiMCtnx0FTEhUvioNA==}
+
+  '@nl-design-system-candidate/paragraph-react@2.2.3':
+    resolution: {integrity: sha512-98LLhwjLuO8VfEOhBrqd/123d3WE/yACVHztQHQQMo5RR/XqnCQZPvqNHmhWpyEBzvVvWW+pJWRycPEneWbIDg==}
     peerDependencies:
       '@babel/runtime': ^7
       react: ^18 || ^19
@@ -2996,6 +3020,23 @@ snapshots:
   '@nl-design-system-candidate/button-react@1.1.0(@babel/runtime@7.29.13)(react@19.3.1)':
     dependencies:
       '@babel/runtime': 7.29.13
+      clsx: 2.1.1
+      react: 19.3.1
+
+  '@nl-design-system-candidate/heading-css@2.0.0': {}
+
+  '@nl-design-system-candidate/heading-react@1.1.8(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      '@nl-design-system-candidate/heading-css': 2.0.0
+      react: 19.3.1
+
+  '@nl-design-system-candidate/paragraph-css@3.0.0': {}
+
+  '@nl-design-system-candidate/paragraph-react@2.2.3(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      '@nl-design-system-candidate/paragraph-css': 3.0.0
       clsx: 2.1.1
       react: 19.3.1
 

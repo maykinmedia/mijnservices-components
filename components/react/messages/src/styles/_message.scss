@@ -39,16 +39,16 @@
     border-style: var(--mijnservices-message-body-border-style);
     border-width: var(--mijnservices-message-body-border-width);
     color: var(--mijnservices-message-body-color);
-    font-family: var(--mijnservices-message-body-font-family);
-    font-size: var(--mijnservices-message-body-font-size);
-    line-height: var(--mijnservices-message-body-line-height);
+    // Tekstkleur van de NLDS Paragraph afstemmen op de achtergrond van de bubble (contrast)
+    --nl-paragraph-color: var(--mijnservices-message-body-color);
     padding-block-end: var(--mijnservices-message-body-padding-block-end);
     padding-block-start: var(--mijnservices-message-body-padding-block-start);
     padding-inline-end: var(--mijnservices-message-body-padding-inline-end);
     padding-inline-start: var(--mijnservices-message-body-padding-inline-start);
   }
 
-  &__text {
+  // MessageText is een NLDS Paragraph. Met .nl-paragraph erbij wint deze margin van die van NLDS.
+  &__text.nl-paragraph {
     margin-block-end: 0;
     margin-block-start: 0;
     margin-inline-end: 0;
