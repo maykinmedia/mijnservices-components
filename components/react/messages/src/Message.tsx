@@ -1,5 +1,7 @@
 import React, { HTMLAttributes, ReactNode, useId } from 'react';
 import clsx from 'clsx';
+import { Paragraph, ParagraphProps } from '@nl-design-system-candidate/paragraph-react';
+import '@nl-design-system-candidate/paragraph-react/css';
 import { MessageAttachment, MessageAttachmentProps } from './MessageAttachment';
 
 /** resident = de inwoner zelf (rechts), organization = de gemeente of andere organisatie (links) */
@@ -23,9 +25,9 @@ export type MessageProps = HTMLAttributes<HTMLElement> & {
   attachments?: MessageAttachmentProps[];
 };
 
-/** Eén alinea in een bericht */
-export const MessageText = ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
-  <p className={clsx('mijnservices-message__text', className)} {...props} />
+/** Eén alinea in een bericht (NLDS Paragraph) */
+export const MessageText = ({ className, ...props }: ParagraphProps) => (
+  <Paragraph className={clsx('mijnservices-message__text', className)} {...props} />
 );
 
 export const Message = ({

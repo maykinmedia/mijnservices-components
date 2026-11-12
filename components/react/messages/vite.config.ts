@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), dts({ bundleTypes: true, insertTypesEntry: true })],
   build: {
     lib: {
-      entry: resolve(import.meta.dirname, 'src/index.ts'),
+      entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
       name: 'MijnservicesMessages',
       fileName: 'messages',
       formats: ['es', 'cjs'],

@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import { Button } from '@nl-design-system-candidate/button-react';
 import '@nl-design-system-candidate/button-react/css';
 import { MessageAttachment } from './MessageAttachment';
+import { useMessagesContext } from './Messages';
 
 export type MessageFormProps = FormHTMLAttributes<HTMLFormElement> & {
   /** Label van het tekstveld (alleen voor screenreaders). Standaard "Schrijf uw bericht". */
@@ -34,7 +35,7 @@ export type MessageFormProps = FormHTMLAttributes<HTMLFormElement> & {
   uploadLabel?: string;
   /** Tekst voor screenreaders vóór het gekozen bestand. Standaard "Gekozen bijlage". */
   selectedFileLabel?: string;
-  /** id van de berichtenlijst (role="log"), voor aria-controls. Optioneel. */
+  /** id van de berichtenlijst (role="log"), voor aria-controls. Binnen <Messages> gaat dit automatisch. */
   logId?: string;
   /** Extra attributen voor de textarea, bijv. value en onChange */
   textareaProps?: TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -105,7 +106,7 @@ export const MessageForm = ({
   submitLabel = 'Versturen',
   uploadLabel = 'Bijlage toevoegen',
   selectedFileLabel = 'Gekozen bijlage',
-  logId,
+  logId: logIdProp,
   textareaProps,
   onFileChange,
   uploadIcon = <PaperclipIcon />,
@@ -115,6 +116,8 @@ export const MessageForm = ({
   ...props
 }: MessageFormProps) => {
   const id = useId();
+  const messagesContext = useMessagesContext();
+  const logId = logIdProp ?? messagesContext.logId;
   const textareaId = `${id}-content`;
   const errorId = `${id}-error`;
   const previewId = `${id}-preview`;
