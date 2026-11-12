@@ -112,6 +112,9 @@ importers:
 
   components/react/messages:
     dependencies:
+      '@nl-design-system-candidate/button-react':
+        specifier: ^1.1.0
+        version: 1.1.0(@babel/runtime@7.29.13)(react@19.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -555,6 +558,12 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
       '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
+
+  '@nl-design-system-candidate/button-react@1.1.0':
+    resolution: {integrity: sha512-Zi2QGpAq6/AWkL0hf9BNcNp8AQUV5yyDcKw7WDBuZ3W0ci/EF46ZfvntTbbBpHX09lYqS6F4Vf7hPGh1BdGxTg==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2983,6 +2992,12 @@ snapshots:
       '@emnapi/runtime': 1.9.2
       '@tybys/wasm-util': 0.10.4
     optional: true
+
+  '@nl-design-system-candidate/button-react@1.1.0(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      clsx: 2.1.1
+      react: 19.3.1
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
