@@ -1,0 +1,54 @@
+/* attachment (kan in in bubble én in formulier staan) */
+
+.mijnservices-message-attachment {
+  align-items: center;
+  background-color: var(--mijnservices-message-attachment-background-color);
+  border-radius: var(--mijnservices-message-attachment-border-radius);
+  color: var(--mijnservices-message-attachment-color);
+  display: inline-flex;
+  font-family: var(--mijnservices-message-attachment-font-family);
+  font-size: var(--mijnservices-message-attachment-font-size);
+  gap: var(--mijnservices-message-attachment-gap);
+  line-height: var(--mijnservices-message-attachment-line-height);
+  max-inline-size: 100%;
+  padding-block-end: var(--mijnservices-message-attachment-padding-block-end);
+  padding-block-start: var(--mijnservices-message-attachment-padding-block-start);
+  padding-inline-end: var(--mijnservices-message-attachment-padding-inline-end);
+  padding-inline-start: var(--mijnservices-message-attachment-padding-inline-start);
+
+  // Als link (in de bubble): bestandsnaam onderstrepen, zodat duidelijk is dat je erop kunt klikken
+  &:is(a) {
+    text-decoration: none;
+
+    .mijnservices-message-attachment__file-name {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline-color: var(--mijnservices-message-attachment-focus-outline-color);
+      outline-offset: 2px;
+      outline-style: solid;
+      outline-width: var(--mijnservices-message-attachment-focus-outline-width);
+    }
+  }
+
+  &__image {
+    block-size: var(--mijnservices-message-attachment-image-size);
+    border-radius: var(--mijnservices-message-attachment-image-border-radius);
+    flex-shrink: 0;
+    inline-size: var(--mijnservices-message-attachment-image-size);
+    overflow: hidden;
+
+    img {
+      block-size: 100%;
+      display: block;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__file-data {
+    min-inline-size: 0;
+    overflow-wrap: break-word; // afbreken op woorden, alleen te lange woorden worden gesplitst
+  }
+}
