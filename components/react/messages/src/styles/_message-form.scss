@@ -82,63 +82,18 @@
     gap: var(--mijnservices-message-form-actions-gap);
   }
 
-  &__upload,
-  &__submit {
-    align-items: center;
-    background-color: var(--mijnservices-message-form-button-background-color);
-    border-color: var(--mijnservices-message-form-button-border-color);
-    border-radius: var(--mijnservices-message-form-button-border-radius);
-    border-style: var(--mijnservices-message-form-button-border-style);
-    border-width: var(--mijnservices-message-form-button-border-width);
-    box-sizing: border-box; // label en button even groot
-    color: var(--mijnservices-message-form-button-color);
-    cursor: pointer;
-    display: inline-flex;
-    font-family: var(--mijnservices-message-form-button-font-family);
-    font-size: var(--mijnservices-message-form-button-font-size);
-    font-weight: var(--mijnservices-message-form-button-font-weight);
-    gap: var(--mijnservices-message-form-button-gap);
-    line-height: var(--mijnservices-message-form-button-line-height);
-    min-block-size: var(--mijnservices-message-form-button-min-block-size);
-    padding-block-end: var(--mijnservices-message-form-button-padding-block-end);
-    padding-block-start: var(--mijnservices-message-form-button-padding-block-start);
-    padding-inline-end: var(--mijnservices-message-form-button-padding-inline-end);
-    padding-inline-start: var(--mijnservices-message-form-button-padding-inline-start);
+  // De knoppen zijn NLDS Buttons (purpose="secondary"); hun uiterlijk komt uit de --nl-button-* tokens.
 
-    &:hover {
-      background-color: var(--mijnservices-message-form-button-hover-background-color);
-    }
-  }
-
-  &__upload {
-    justify-content: center;
-    min-inline-size: var(--mijnservices-message-form-upload-min-inline-size);
-  }
-
-  // Mobiel: vierkante knoppen met alleen een icoon, zodat er meer ruimte is voor tekst en bijlage
-  &__upload,
-  &__submit {
+  // Mobiel: verzendknop alleen met icoon, zodat er meer ruimte is voor tekst en bijlage
+  &__submit.nl-button {
     @include mobile {
-      justify-content: center;
-      min-inline-size: var(--mijnservices-message-form-button-min-block-size);
-      padding-inline-end: 0;
-      padding-inline-start: 0;
-    }
-  }
+      padding-inline-end: var(--nl-button-icon-only-padding-inline-end);
+      padding-inline-start: var(--nl-button-icon-only-padding-inline-start);
 
-  // Mobiel: tekst "Versturen" alleen voor screenreaders
-  &__submit-text {
-    @include mobile {
-      @include visually-hidden;
+      .nl-button__label {
+        @include visually-hidden;
+      }
     }
-  }
-
-  &__submit:focus-visible,
-  &__actions:has(&__file:focus-visible) &__upload {
-    outline-color: var(--mijnservices-message-form-focus-outline-color);
-    outline-offset: 2px;
-    outline-style: solid;
-    outline-width: var(--mijnservices-message-form-focus-outline-width);
   }
 
   &__icon {

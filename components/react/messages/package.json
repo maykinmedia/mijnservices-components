@@ -32,6 +32,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@nl-design-system-candidate/button-react": "^1.1.0",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
