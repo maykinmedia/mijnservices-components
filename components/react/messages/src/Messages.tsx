@@ -13,6 +13,8 @@ export type MessagesHeadingLevel = 2 | 3 | 4 | 5 | 6;
 const MessagesContext = createContext<{ logId?: string }>({});
 export const useMessagesContext = () => useContext(MessagesContext);
 
+// NOTE: text props such as `logLabel` currently have Dutch default values and are not translated yet.
+// Projects in another language must pass their own texts via these props.
 export type MessagesProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
   /** Titel van het gesprek, bijv. "Status van mijn zaak" */
   title: ReactNode;

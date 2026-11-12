@@ -9,6 +9,8 @@ export type MessagesItemProps = LiHTMLAttributes<HTMLLIElement> & {
   newLabel?: string;
 };
 
+// NOTE: text props such as `newLabel` currently have Dutch default values and are not translated yet.
+// Projects in another language must pass their own texts via these props.
 export const MessagesItem = ({
   isNew = false,
   newLabel = 'Nieuw bericht',

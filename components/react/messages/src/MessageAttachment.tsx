@@ -2,6 +2,8 @@ import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import './styles/index.scss';
 
+// NOTE: text props such as `label` currently have Dutch default values and are not translated yet.
+// Projects in another language must pass their own texts via these props.
 export type MessageAttachmentProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   /** Bestandsnaam, bijv. "wasmachine.png" */
   fileName: string;
