@@ -1,4 +1,3 @@
 import './styles/index.scss';
 
-// Zorgt voor exports, bijvoorbeeld: export * from './Message';
-export {};
+export * from './MessageAttachment';

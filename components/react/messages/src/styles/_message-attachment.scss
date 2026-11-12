@@ -45,6 +45,12 @@
       inline-size: 100%;
       object-fit: cover;
     }
+
+    // Wanneer er geen preview mogelijk is (bijv. PDF): leeg vlak.
+    // Of de preview loopt via back-end, niet in de front-end
+    &:empty {
+      background-color: var(--mijnservices-message-attachment-image-placeholder-background-color);
+    }
   }
 
   &__file-data {
