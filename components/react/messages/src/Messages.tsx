@@ -4,6 +4,7 @@ import { Heading } from '@nl-design-system-candidate/heading-react';
 import '@nl-design-system-candidate/heading-react/css';
 import { Paragraph } from '@nl-design-system-candidate/paragraph-react';
 import '@nl-design-system-candidate/paragraph-react/css';
+import './styles/index.scss';
 
 /** Alleen echte kopniveaus, nooit h1 (die hoort bij de pagina zelf) */
 export type MessagesHeadingLevel = 2 | 3 | 4 | 5 | 6;
