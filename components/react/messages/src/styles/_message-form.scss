@@ -1,0 +1,149 @@
+@use "mixins" as *;
+
+.mijnservices-message-form {
+  &__error {
+    font-family: var(--mijnservices-message-form-error-font-family);
+    font-size: var(--mijnservices-message-form-error-font-size);
+    line-height: var(--mijnservices-message-form-error-line-height);
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+
+    &:not(:empty) {
+      margin-block-end: var(--mijnservices-message-form-error-margin-block-end);
+    }
+  }
+
+  &__field {
+    align-items: flex-start;
+    background-color: var(--mijnservices-message-form-field-background-color);
+    border-radius: var(--mijnservices-message-form-field-border-radius);
+    display: flex;
+    gap: var(--mijnservices-message-form-field-gap);
+    padding-block-end: var(--mijnservices-message-form-field-padding-block-end);
+    padding-block-start: var(--mijnservices-message-form-field-padding-block-start);
+    padding-inline-end: var(--mijnservices-message-form-field-padding-inline-end);
+    padding-inline-start: var(--mijnservices-message-form-field-padding-inline-start);
+
+    // Alleen een rand om het hele vlak als de textarea focus heeft, niet bij de knoppen
+    &:has(.mijnservices-message-form__textarea:focus-visible) {
+      outline-color: var(--mijnservices-message-form-focus-outline-color);
+      outline-offset: 2px;
+      outline-style: solid;
+      outline-width: var(--mijnservices-message-form-focus-outline-width);
+    }
+  }
+
+  // Textarea + gekozen bestand onder elkaar
+  &__input {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+
+  &__textarea {
+    background-color: var(--mijnservices-message-form-textarea-background-color); // blijft grijs, ook tijdens typen
+    border-color: var(--mijnservices-message-form-textarea-border-color);
+    border-radius: var(--mijnservices-message-form-textarea-border-radius);
+    border-style: var(--mijnservices-message-form-textarea-border-style);
+    border-width: var(--mijnservices-message-form-textarea-border-width);
+    color: var(--mijnservices-message-form-textarea-color);
+    font-family: var(--mijnservices-message-form-textarea-font-family);
+    font-size: var(--mijnservices-message-form-textarea-font-size);
+    font-weight: var(--mijnservices-message-form-textarea-font-weight);
+    line-height: var(--mijnservices-message-form-textarea-line-height);
+    min-block-size: var(--mijnservices-message-form-textarea-min-block-size);
+    padding-block-end: var(--mijnservices-message-form-textarea-padding-block-end);
+    padding-block-start: var(--mijnservices-message-form-textarea-padding-block-start);
+    padding-inline-end: var(--mijnservices-message-form-textarea-padding-inline-end);
+    padding-inline-start: var(--mijnservices-message-form-textarea-padding-inline-start);
+    resize: vertical;
+
+    &:focus {
+      outline: none; // focus zit op __field via :has()
+    }
+
+    &::placeholder {
+      color: var(--mijnservices-message-form-textarea-placeholder-color);
+      opacity: 1;
+    }
+  }
+
+  &__preview:not(:empty) {
+    margin-block-start: var(--mijnservices-message-form-preview-margin-block-start);
+  }
+
+  &__actions {
+    align-self: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--mijnservices-message-form-actions-gap);
+  }
+
+  &__upload,
+  &__submit {
+    align-items: center;
+    background-color: var(--mijnservices-message-form-button-background-color);
+    border-color: var(--mijnservices-message-form-button-border-color);
+    border-radius: var(--mijnservices-message-form-button-border-radius);
+    border-style: var(--mijnservices-message-form-button-border-style);
+    border-width: var(--mijnservices-message-form-button-border-width);
+    box-sizing: border-box; // label en button even groot
+    color: var(--mijnservices-message-form-button-color);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--mijnservices-message-form-button-font-family);
+    font-size: var(--mijnservices-message-form-button-font-size);
+    font-weight: var(--mijnservices-message-form-button-font-weight);
+    gap: var(--mijnservices-message-form-button-gap);
+    line-height: var(--mijnservices-message-form-button-line-height);
+    min-block-size: var(--mijnservices-message-form-button-min-block-size);
+    padding-block-end: var(--mijnservices-message-form-button-padding-block-end);
+    padding-block-start: var(--mijnservices-message-form-button-padding-block-start);
+    padding-inline-end: var(--mijnservices-message-form-button-padding-inline-end);
+    padding-inline-start: var(--mijnservices-message-form-button-padding-inline-start);
+
+    &:hover {
+      background-color: var(--mijnservices-message-form-button-hover-background-color);
+    }
+  }
+
+  &__upload {
+    justify-content: center;
+    min-inline-size: var(--mijnservices-message-form-upload-min-inline-size);
+  }
+
+  // Mobiel: vierkante knoppen met alleen een icoon, zodat er meer ruimte is voor tekst en bijlage
+  &__upload,
+  &__submit {
+    @include mobile {
+      justify-content: center;
+      min-inline-size: var(--mijnservices-message-form-button-min-block-size);
+      padding-inline-end: 0;
+      padding-inline-start: 0;
+    }
+  }
+
+  // Mobiel: tekst "Versturen" alleen voor screenreaders
+  &__submit-text {
+    @include mobile {
+      @include visually-hidden;
+    }
+  }
+
+  &__submit:focus-visible,
+  &__actions:has(&__file:focus-visible) &__upload {
+    outline-color: var(--mijnservices-message-form-focus-outline-color);
+    outline-offset: 2px;
+    outline-style: solid;
+    outline-width: var(--mijnservices-message-form-focus-outline-width);
+  }
+
+  &__icon {
+    block-size: var(--mijnservices-message-form-icon-size);
+    flex-shrink: 0;
+    inline-size: var(--mijnservices-message-form-icon-size);
+  }
+}
