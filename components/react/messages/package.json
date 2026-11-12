@@ -17,7 +17,8 @@
     "./index.css": "./dist/messages.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "tokens.json"
   ],
   "sideEffects": [
     "**/*.css"

@@ -15,6 +15,8 @@ import { MessageAttachment } from './MessageAttachment';
 import { useMessagesContext } from './Messages';
 import './styles/index.scss';
 
+// NOTE: text props such as `submitLabel` currently have Dutch default values and are not translated yet.
+// Projects in another language must pass their own texts via these props.
 export type MessageFormProps = FormHTMLAttributes<HTMLFormElement> & {
   /** Label van het tekstveld (alleen voor screenreaders). Standaard "Schrijf uw bericht". */
   label?: string;
