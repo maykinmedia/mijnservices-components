@@ -1,3 +1,4 @@
 import './styles/index.scss';
 
 export * from './MessageAttachment';
+export * from './Message';
