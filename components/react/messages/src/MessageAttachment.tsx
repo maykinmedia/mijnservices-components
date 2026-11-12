@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
+import './styles/index.scss';
 
 export type MessageAttachmentProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   /** Bestandsnaam, bijv. "wasmachine.png" */

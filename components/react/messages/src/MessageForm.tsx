@@ -13,6 +13,7 @@ import { Button } from '@nl-design-system-candidate/button-react';
 import '@nl-design-system-candidate/button-react/css';
 import { MessageAttachment } from './MessageAttachment';
 import { useMessagesContext } from './Messages';
+import './styles/index.scss';
 
 export type MessageFormProps = FormHTMLAttributes<HTMLFormElement> & {
   /** Label van het tekstveld (alleen voor screenreaders). Standaard "Schrijf uw bericht". */

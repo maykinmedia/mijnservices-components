@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Paragraph, ParagraphProps } from '@nl-design-system-candidate/paragraph-react';
 import '@nl-design-system-candidate/paragraph-react/css';
 import { MessageAttachment, MessageAttachmentProps } from './MessageAttachment';
+import './styles/index.scss';
 
 /** resident = de inwoner zelf (rechts), organization = de gemeente of andere organisatie (links) */
 export type MessageVariant = 'resident' | 'organization';
