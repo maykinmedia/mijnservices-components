@@ -1,0 +1,145 @@
+@use "mixins" as *;
+
+.mijnservices-messages {
+  background-color: var(--mijnservices-messages-background-color);
+  border-color: var(--mijnservices-messages-border-color);
+  border-radius: var(--mijnservices-messages-border-radius);
+  border-style: var(--mijnservices-messages-border-style);
+  border-width: var(--mijnservices-messages-border-width);
+  color: var(--mijnservices-messages-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    background-color: var(--mijnservices-messages-header-background-color);
+    border-block-end-color: var(--mijnservices-messages-header-border-color);
+    border-block-end-style: var(--mijnservices-messages-header-border-style);
+    border-block-end-width: var(--mijnservices-messages-header-border-width);
+    column-gap: var(--mijnservices-messages-header-column-gap);
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block-end: var(--mijnservices-messages-header-padding-block-end);
+    padding-block-start: var(--mijnservices-messages-header-padding-block-start);
+    padding-inline-end: var(--mijnservices-messages-header-padding-inline-end);
+    padding-inline-start: var(--mijnservices-messages-header-padding-inline-start);
+    row-gap: var(--mijnservices-messages-header-row-gap);
+
+    // Mobiel: alles onder elkaar
+    @include mobile {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  // Titel, datum en zaaknummer zijn NLDS Heading en Paragraph: hun lettertype komt uit de --nl-heading-* en --nl-paragraph-* tokens.
+  // Met .nl-heading/.nl-paragraph erbij wint deze margin van die van NLDS, ongeacht de volgorde van de CSS.
+  &__title.nl-heading {
+    margin-block-end: var(--mijnservices-messages-title-margin-block-end);
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+  }
+
+  &__meta.nl-paragraph,
+  &__case-number.nl-paragraph {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    max-block-size: var(--mijnservices-messages-body-max-block-size);
+    min-block-size: 0;
+    overflow-y: auto;
+    padding-block-end: var(--mijnservices-messages-body-padding-block-end);
+    padding-block-start: var(--mijnservices-messages-body-padding-block-start);
+    padding-inline-end: var(--mijnservices-messages-body-padding-inline-end);
+    padding-inline-start: var(--mijnservices-messages-body-padding-inline-start);
+
+    &:focus-visible {
+      outline-color: var(--mijnservices-messages-focus-outline-color);
+      outline-offset: -2px;
+      outline-style: solid;
+      outline-width: var(--mijnservices-messages-focus-outline-width);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mijnservices-messages-list-gap);
+    list-style: none;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    padding-block-end: 0;
+    padding-block-start: 0;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* "Nieuw bericht" scheidingslijn */
+  &__divider {
+    align-items: center;
+    display: flex;
+    gap: var(--mijnservices-messages-divider-gap);
+    margin-block-end: var(--mijnservices-messages-divider-margin-block-end);
+    margin-block-start: var(--mijnservices-messages-divider-margin-block-start);
+    margin-inline-end: var(--mijnservices-messages-divider-margin-inline-end);
+    margin-inline-start: var(--mijnservices-messages-divider-margin-inline-start);
+
+    &::before,
+    &::after {
+      border-block-start-color: var(--mijnservices-messages-divider-border-color);
+      border-block-start-style: var(--mijnservices-messages-divider-border-style);
+      border-block-start-width: var(--mijnservices-messages-divider-border-width);
+      content: "";
+      flex: 1 1 auto;
+    }
+  }
+
+  &__divider-label {
+    background-color: var(--mijnservices-messages-divider-label-background-color);
+    border-radius: var(--mijnservices-messages-divider-label-border-radius);
+    color: var(--mijnservices-messages-divider-label-color);
+    font-family: var(--mijnservices-messages-divider-label-font-family);
+    font-size: var(--mijnservices-messages-divider-label-font-size);
+    font-weight: var(--mijnservices-messages-divider-label-font-weight);
+    line-height: var(--mijnservices-messages-divider-label-line-height);
+    padding-block-end: var(--mijnservices-messages-divider-label-padding-block-end);
+    padding-block-start: var(--mijnservices-messages-divider-label-padding-block-start);
+    padding-inline-end: var(--mijnservices-messages-divider-label-padding-inline-end);
+    padding-inline-start: var(--mijnservices-messages-divider-label-padding-inline-start);
+    white-space: nowrap;
+  }
+
+  &__form {
+    border-block-start-color: var(--mijnservices-messages-form-border-color);
+    border-block-start-style: var(--mijnservices-messages-form-border-style);
+    border-block-start-width: var(--mijnservices-messages-form-border-width);
+    flex-shrink: 0;
+    padding-block-end: var(--mijnservices-messages-form-padding-block-end);
+    padding-block-start: var(--mijnservices-messages-form-padding-block-start);
+    padding-inline-end: var(--mijnservices-messages-form-padding-inline-end);
+    padding-inline-start: var(--mijnservices-messages-form-padding-inline-start);
+  }
+}
+
+/* utility */
+
+// De screen-reader-only stijl
+.mijnservices-messages__visually-hidden {
+  @include visually-hidden;
+}

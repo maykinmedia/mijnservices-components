@@ -110,6 +110,52 @@ importers:
         specifier: ^5.1.2
         version: 5.1.2(@microsoft/api-extractor@7.60.1(@types/node@22.20.5))(esbuild@0.28.2)(rolldown@1.2.18)(rollup@4.62.2)(typescript@6.0.3)(vite@8.3.3(@types/node@22.20.5)(esbuild@0.28.2)(sass@1.100.0))
 
+  components/react/messages:
+    dependencies:
+      '@nl-design-system-candidate/button-react':
+        specifier: ^1.1.0
+        version: 1.1.0(@babel/runtime@7.29.13)(react@19.3.1)
+      '@nl-design-system-candidate/heading-react':
+        specifier: ^1.1.8
+        version: 1.1.8(@babel/runtime@7.29.13)(react@19.3.1)
+      '@nl-design-system-candidate/paragraph-react':
+        specifier: ^2.2.3
+        version: 2.2.3(@babel/runtime@7.29.13)(react@19.3.1)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7.60.1
+        version: 7.60.1(@types/node@22.20.5)
+      '@types/node':
+        specifier: ^22.20.5
+        version: 22.20.5
+      '@types/react':
+        specifier: ^19.3.0
+        version: 19.3.0
+      '@types/react-dom':
+        specifier: ^19.3.0
+        version: 19.3.0(@types/react@19.3.0)
+      '@vitejs/plugin-react':
+        specifier: ^6.3.0
+        version: 6.3.0(vite@8.3.3(@types/node@22.20.5)(esbuild@0.28.2)(sass@1.100.0))
+      react:
+        specifier: ^19
+        version: 19.3.1
+      react-dom:
+        specifier: ^19
+        version: 19.3.1(react@19.3.1)
+      rimraf:
+        specifier: ^6.1.4
+        version: 6.1.4
+      vite:
+        specifier: 8.3.3
+        version: 8.3.3(@types/node@22.20.5)(esbuild@0.28.2)(sass@1.100.0)
+      vite-plugin-dts:
+        specifier: ^5.1.2
+        version: 5.1.2(@microsoft/api-extractor@7.60.1(@types/node@22.20.5))(esbuild@0.28.2)(rolldown@1.2.18)(rollup@4.62.2)(typescript@6.0.3)(vite@8.3.3(@types/node@22.20.5)(esbuild@0.28.2)(sass@1.100.0))
+
   components/section-wrapper:
     dependencies:
       '@lit/react':
@@ -518,6 +564,30 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
       '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
+
+  '@nl-design-system-candidate/button-react@1.1.0':
+    resolution: {integrity: sha512-Zi2QGpAq6/AWkL0hf9BNcNp8AQUV5yyDcKw7WDBuZ3W0ci/EF46ZfvntTbbBpHX09lYqS6F4Vf7hPGh1BdGxTg==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
+
+  '@nl-design-system-candidate/heading-css@2.0.0':
+    resolution: {integrity: sha512-z3SJ/wMwHkgM8RxULs5xVDEomCLM2kG6otDlLaPHBLJ3cF5ps2lC0JjvDHU2Vfz1ZHUozzb4eG4XntmRbsrXZQ==}
+
+  '@nl-design-system-candidate/heading-react@1.1.8':
+    resolution: {integrity: sha512-TfEmz1GVwwYVtfAMKecTMUVrJCUTZ7kOddviXJUvXHGJTsROsZODINkbFtruoHQRuTFKap12AB4oK+EvhPVMvQ==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
+
+  '@nl-design-system-candidate/paragraph-css@3.0.0':
+    resolution: {integrity: sha512-muu7/dFpaq99nsfNGvcQrXM+A19q2aOQC4fkMFkKep+U/jcJr2pl84hIFYtI5MBasdDGSiMCtnx0FTEhUvioNA==}
+
+  '@nl-design-system-candidate/paragraph-react@2.2.3':
+    resolution: {integrity: sha512-98LLhwjLuO8VfEOhBrqd/123d3WE/yACVHztQHQQMo5RR/XqnCQZPvqNHmhWpyEBzvVvWW+pJWRycPEneWbIDg==}
+    peerDependencies:
+      '@babel/runtime': ^7
+      react: ^18 || ^19
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2946,6 +3016,29 @@ snapshots:
       '@emnapi/runtime': 1.9.2
       '@tybys/wasm-util': 0.10.4
     optional: true
+
+  '@nl-design-system-candidate/button-react@1.1.0(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      clsx: 2.1.1
+      react: 19.3.1
+
+  '@nl-design-system-candidate/heading-css@2.0.0': {}
+
+  '@nl-design-system-candidate/heading-react@1.1.8(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      '@nl-design-system-candidate/heading-css': 2.0.0
+      react: 19.3.1
+
+  '@nl-design-system-candidate/paragraph-css@3.0.0': {}
+
+  '@nl-design-system-candidate/paragraph-react@2.2.3(@babel/runtime@7.29.13)(react@19.3.1)':
+    dependencies:
+      '@babel/runtime': 7.29.13
+      '@nl-design-system-candidate/paragraph-css': 3.0.0
+      clsx: 2.1.1
+      react: 19.3.1
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

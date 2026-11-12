@@ -1,0 +1,20 @@
+// Desktop first: tot en met deze breedte geldt het mobiele design.
+$mijnservices-messages-breakpoint-mobile: 480px;
+
+@mixin mobile {
+  @media (max-width: $mijnservices-messages-breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  block-size: 1px;
+  border: 0;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}

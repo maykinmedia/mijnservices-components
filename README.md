@@ -131,7 +131,7 @@ After making a change to a component, run locally:
 pnpm changeset
 ```
 
-This will show an interactive terminal where you can select the canhged components with `ENTER1` and skip the 'major' release if not needed and just select the 'minor' release.
+This will show an interactive terminal where you can select the changed components with `ENTER1` and skip the 'major' release if not needed and just select the 'minor' release.
 
 Commit the generated file under `.changeset/` alongside your change.
 
