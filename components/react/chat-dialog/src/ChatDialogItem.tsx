@@ -11,7 +11,7 @@ export type MessagesItemProps = LiHTMLAttributes<HTMLLIElement> & {
 
 // NOTE: text props such as `newLabel` currently have Dutch default values and are not translated yet.
 // Projects in another language must pass their own texts via these props.
-export const MessagesItem = ({
+export const ChatDialogItem = ({
   isNew = false,
   newLabel = 'Nieuw bericht',
   className,
@@ -40,4 +40,4 @@ export const MessagesItem = ({
   );
 };
 
-export default MessagesItem;
+export default ChatDialogItem;

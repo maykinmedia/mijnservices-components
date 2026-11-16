@@ -11,8 +11,8 @@ import React, {
 import clsx from 'clsx';
 import { Button } from '@nl-design-system-candidate/button-react';
 import '@nl-design-system-candidate/button-react/css';
-import { MessageAttachment } from './MessageAttachment';
-import { useMessagesContext } from './Messages';
+import { ChatMessageAttachment } from './ChatMessageAttachment';
+import { useMessagesContext } from './ChatDialog';
 import './styles/index.scss';
 
 // NOTE: text props such as `submitLabel` currently have Dutch default values and are not translated yet.
@@ -98,7 +98,7 @@ const SendIcon = () => (
   </svg>
 );
 
-export const MessageForm = ({
+export const ChatMessageForm = ({
   label = 'Schrijf uw bericht',
   placeholder = 'Schrijf uw bericht',
   textareaName = 'content',
@@ -183,7 +183,7 @@ export const MessageForm = ({
 
           <div className="mijnservices-message-form__preview" id={previewId} aria-live="polite">
             {selectedFile && (
-              <MessageAttachment
+              <ChatMessageAttachment
                 className="mijnservices-message-form__attachment"
                 label={selectedFileLabel}
                 fileName={selectedFile.name}
@@ -234,4 +234,4 @@ export const MessageForm = ({
   );
 };
 
-export default MessageForm;
+export default ChatMessageForm;

@@ -24,7 +24,7 @@ export type MessageAttachmentProps = Omit<HTMLAttributes<HTMLElement>, 'children
   label?: string;
 };
 
-export const MessageAttachment = ({
+export const ChatMessageAttachment = ({
   fileName,
   fileType,
   fileSize,
@@ -35,7 +35,7 @@ export const MessageAttachment = ({
   className,
   ...props
 }: MessageAttachmentProps) => {
-  const classNames = clsx('mijnservices-message-attachment', className);
+  const classNames = clsx('mijnservices-chat-message-attachment', className);
 
   // Alleen de gegevens tonen die er zijn, gescheiden door komma's: (png, 228 kB, 14-07-2026)
   const details = [
@@ -47,19 +47,19 @@ export const MessageAttachment = ({
   const content = (
     <>
       {/* Altijd tonen: zonder thumbnail blijft het vlak leeg en kleurt de SCSS het grijs */}
-      <span className="mijnservices-message-attachment__image">
+      <span className="mijnservices-chat-message-attachment__image">
         {thumbnailSrc && <img src={thumbnailSrc} alt="" />}
       </span>
-      <span className="mijnservices-message-attachment__file-data">
+      <span className="mijnservices-chat-message-attachment__file-data">
         <span className="mijnservices-messages__visually-hidden">{label}: </span>
-        <span className="mijnservices-message-attachment__file-name">{fileName}</span>
+        <span className="mijnservices-chat-message-attachment__file-name">{fileName}</span>
         {details.length > 0 && (
           <>
             {' ('}
             {details.map((detail, index) => (
               <React.Fragment key={detail.key}>
                 {index > 0 && ', '}
-                <span className={`mijnservices-message-attachment__file-${detail.key}`}>{detail.value}</span>
+                <span className={`mijnservices-chat-message-attachment__file-${detail.key}`}>{detail.value}</span>
               </React.Fragment>
             ))}
             {')'}
@@ -84,4 +84,4 @@ export const MessageAttachment = ({
   );
 };
 
-export default MessageAttachment;
+export default ChatMessageAttachment;

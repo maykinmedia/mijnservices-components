@@ -1,13 +1,13 @@
-# @mijnservices/messages
+# @mijnservices/chat-dialog
 
-[![npm](https://img.shields.io/npm/v/@mijnservices/messages)](https://www.npmjs.com/package/@mijnservices/messages)
+[![npm](https://img.shields.io/npm/v/@mijnservices/chat-dialog)](https://www.npmjs.com/package/@mijnservices/chat-dialog)
 
-A chat/messages component (naming is still work in progress), that contains individual chat bubbles (single message). Part of [mijnservices-components](https://github.com/maykinmedia/mijnservices-components), built on NL Design System architecture.
+A chat conversation component (naming is still work in progress), that contains individual chat bubbles (single message). Part of [mijnservices-components](https://github.com/maykinmedia/mijnservices-components), built on NL Design System architecture.
 
 ## Install
 
 ```bash
-npm install @mijnservices/messages
+npm install @mijnservices/chat-dialog
 ```
 
 ## Accessibility

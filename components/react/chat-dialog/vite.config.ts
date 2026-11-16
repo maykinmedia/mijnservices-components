@@ -8,12 +8,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-      name: 'MijnservicesMessages',
-      fileName: 'messages',
+      name: 'MijnservicesChatDialog',
+      fileName: 'chat-dialog',
       formats: ['es', 'cjs'],
     },
     rolldownOptions: {
-      // React blijft een peer dependency, en NLDS-componenten worden door het project zelf geïnstalleerd: niet meebundelen
+      // React blijft peer dependency, NLDS-componenten worden door project zelf geïnstalleerd: niet meebundelen
       external: ['react', 'react-dom', 'react/jsx-runtime', /^@nl-design-system-candidate\//],
     },
     cssCodeSplit: false,

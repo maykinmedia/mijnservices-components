@@ -1,8 +1,8 @@
 // Desktop first: tot en met deze breedte geldt het mobiele design.
-$mijnservices-messages-breakpoint-mobile: 480px;
+$mijnservices-chat-conversation-breakpoint-mobile: 480px;
 
 @mixin mobile {
-  @media (max-width: $mijnservices-messages-breakpoint-mobile) {
+  @media (max-width: $mijnservices-chat-conversation-breakpoint-mobile) {
     @content;
   }
 }

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import './denhaag-comparison-theme.css';
-import './messages-theme.css';
+import './chat-dialog-theme.css';
 
 const preview: Preview = {
   tags: ['autodocs'],

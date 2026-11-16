@@ -1,20 +1,20 @@
 {
-  "name": "@mijnservices/messages",
+  "name": "@mijnservices/chat-dialog",
   "version": "0.1.0",
-  "description": "React Messages component for the MijnServices component library",
+  "description": "React Chat Conversation component for the MijnServices component library",
   "license": "EUPL-1.2",
   "author": "Maykin Media",
   "type": "module",
-  "main": "./dist/messages.cjs",
-  "module": "./dist/messages.js",
+  "main": "./dist/chat-dialog.cjs",
+  "module": "./dist/chat-dialog.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/messages.js",
-      "require": "./dist/messages.cjs"
+      "import": "./dist/chat-dialog.js",
+      "require": "./dist/chat-dialog.cjs"
     },
-    "./index.css": "./dist/messages.css"
+    "./index.css": "./dist/chat-dialog.css"
   },
   "files": [
     "dist",

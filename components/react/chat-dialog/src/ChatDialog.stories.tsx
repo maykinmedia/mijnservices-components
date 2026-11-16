@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
-import { Messages, MessagesItem, Message, MessageText, MessageForm } from './index';
+import { ChatDialog, ChatDialogItem, ChatMessage, MessageText, ChatMessageForm } from './index';
 
 // Voorbeeld-thumbnail, zodat de story ook zonder internet werkt
 const thumbnail =
@@ -10,8 +10,8 @@ const thumbnail =
 // Lang gesprek met alle onderdelen: alinea's, "Nieuw bericht" en een bijlage
 const fullConversation = (
   <>
-    <MessagesItem>
-      <Message
+    <ChatDialogItem>
+      <ChatMessage
         variant="resident"
         author="Jij"
         dateTime="2026-07-12T13:30"
@@ -20,11 +20,16 @@ const fullConversation = (
       >
         Hallo, ik heb een tijd geleden een aanvraag gedaan voor de witgoedregeling, maar sindsdien niets meer gehoord.
         Ik zou graag een wasmachine willen kopen om weer te kunnen wassen. Kunt u mij laten weten wat de status is?
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
 
-    <MessagesItem>
-      <Message variant="organization" author="Gemeente Voorbeeld" dateTime="2026-07-13T09:30" time="13/07/2026 - 09:30">
+    <ChatDialogItem>
+      <ChatMessage
+        variant="organization"
+        author="Gemeente Voorbeeld"
+        dateTime="2026-07-13T09:30"
+        time="13/07/2026 - 09:30"
+      >
         <MessageText>Hartelijk dank voor uw bericht. Wij hebben uw vraag in goede orde ontvangen.</MessageText>
         <MessageText>
           Wij streven ernaar om binnen 24 uur te reageren. Hebt u in de tussentijd aanvullende informatie of vragen? Dan
@@ -35,19 +40,24 @@ const fullConversation = (
           <br />
           Gemeente Voorbeeld
         </MessageText>
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
 
-    <MessagesItem isNew>
-      <Message variant="organization" author="Gemeente Voorbeeld" dateTime="2026-07-13T09:30" time="13/07/2026 - 09:30">
+    <ChatDialogItem isNew>
+      <ChatMessage
+        variant="organization"
+        author="Gemeente Voorbeeld"
+        dateTime="2026-07-13T09:30"
+        time="13/07/2026 - 09:30"
+      >
         Om je aanvraag voor de witgoedregeling verder te kunnen beoordelen, hebben wij nog aanvullende informatie nodig
         over je oude wasmachine. Kun je aangeven hoe oud de wasmachine is, wat het probleem ermee is en waarom deze
         vervangen moet worden?
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
 
-    <MessagesItem>
-      <Message
+    <ChatDialogItem>
+      <ChatMessage
         variant="resident"
         author="Jij"
         dateTime="2026-07-14T10:30"
@@ -65,16 +75,16 @@ const fullConversation = (
         ]}
       >
         Ja, hier is een foto van de wasmachine.
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
   </>
 );
 
 // Kort gesprek voor de meeste stories
 const shortConversation = (
   <>
-    <MessagesItem>
-      <Message
+    <ChatDialogItem>
+      <ChatMessage
         variant="resident"
         author="Jij"
         dateTime="2026-07-12T13:30"
@@ -82,28 +92,38 @@ const shortConversation = (
         status="Status: verzonden"
       >
         Hallo, ik heb een aanvraag gedaan voor de witgoedregeling. Kunt u mij laten weten wat de status is?
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
 
-    <MessagesItem isNew>
-      <Message variant="organization" author="Gemeente Voorbeeld" dateTime="2026-07-13T09:30" time="13/07/2026 - 09:30">
+    <ChatDialogItem isNew>
+      <ChatMessage
+        variant="organization"
+        author="Gemeente Voorbeeld"
+        dateTime="2026-07-13T09:30"
+        time="13/07/2026 - 09:30"
+      >
         Hartelijk dank voor uw bericht. Wij nemen uw aanvraag binnen 5 werkdagen in behandeling.
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
   </>
 );
 
 // Gesprek waarin om een bijlage wordt gevraagd
 const attachmentConversation = (
   <>
-    <MessagesItem>
-      <Message variant="organization" author="Gemeente Voorbeeld" dateTime="2026-07-13T09:30" time="13/07/2026 - 09:30">
+    <ChatDialogItem>
+      <ChatMessage
+        variant="organization"
+        author="Gemeente Voorbeeld"
+        dateTime="2026-07-13T09:30"
+        time="13/07/2026 - 09:30"
+      >
         Kunt u een foto van uw oude wasmachine sturen?
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
 
-    <MessagesItem>
-      <Message
+    <ChatDialogItem>
+      <ChatMessage
         variant="resident"
         author="Jij"
         dateTime="2026-07-14T10:30"
@@ -111,14 +131,14 @@ const attachmentConversation = (
         status="Status: verzonden"
       >
         Ja, die stuur ik hierbij mee.
-      </Message>
-    </MessagesItem>
+      </ChatMessage>
+    </ChatDialogItem>
   </>
 );
 
-const meta: Meta<typeof Messages> = {
+const meta: Meta<typeof ChatDialog> = {
   title: 'React/Messages',
-  component: Messages,
+  component: ChatDialog,
   parameters: {
     // Breder dan de standaard 600px uit preview.tsx, zodat de desktop-layout zichtbaar is
     maxInlineSize: '960px',
@@ -145,12 +165,12 @@ const meta: Meta<typeof Messages> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Messages>;
+type Story = StoryObj<typeof ChatDialog>;
 
 /** Gesprek met formulier. Kies een bestand om de bijlage-preview te zien. */
 export const Default: Story = {
   args: {
-    form: <MessageForm />,
+    form: <ChatMessageForm />,
   },
 };
 
@@ -164,7 +184,7 @@ export const ReadOnly: Story = {
 /** Met een foutmelding boven het invoerveld (role="alert") */
 export const WithError: Story = {
   args: {
-    form: <MessageForm error="Het bericht kon niet worden verstuurd. Probeer het later opnieuw." />,
+    form: <ChatMessageForm error="Het bericht kon niet worden verstuurd. Probeer het later opnieuw." />,
   },
 };
 
@@ -175,7 +195,7 @@ export const WithError: Story = {
 export const WithSelectedFile: Story = {
   args: {
     children: attachmentConversation,
-    form: <MessageForm />,
+    form: <ChatMessageForm />,
   },
   play: async ({ canvasElement }) => {
     const fileInput = canvasElement.querySelector<HTMLInputElement>('input[type="file"]');

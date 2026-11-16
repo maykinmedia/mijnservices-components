@@ -32,7 +32,7 @@ export type MessagesProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
   children?: ReactNode;
 };
 
-export const Messages = ({
+export const ChatDialog = ({
   title,
   headingLevel = 2,
   meta,
@@ -71,4 +71,4 @@ export const Messages = ({
   );
 };
 
-export default Messages;
+export default ChatDialog;

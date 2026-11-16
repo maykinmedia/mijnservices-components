@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactNode, useId } from 'react';
 import clsx from 'clsx';
 import { Paragraph, ParagraphProps } from '@nl-design-system-candidate/paragraph-react';
 import '@nl-design-system-candidate/paragraph-react/css';
-import { MessageAttachment, MessageAttachmentProps } from './MessageAttachment';
+import { ChatMessageAttachment, MessageAttachmentProps } from './ChatMessageAttachment';
 import './styles/index.scss';
 
 /** resident = de inwoner zelf (rechts), organization = de gemeente of andere organisatie (links) */
@@ -31,7 +31,7 @@ export const MessageText = ({ className, ...props }: ParagraphProps) => (
   <Paragraph className={clsx('mijnservices-message__text', className)} {...props} />
 );
 
-export const Message = ({
+export const ChatMessage = ({
   variant,
   author,
   authorPrefix = 'Bericht van',
@@ -71,7 +71,7 @@ export const Message = ({
         {typeof children === 'string' ? <MessageText>{children}</MessageText> : children}
 
         {attachments?.map((attachment, index) => (
-          <MessageAttachment
+          <ChatMessageAttachment
             key={attachment.href ?? `${attachment.fileName}-${index}`}
             {...attachment}
             className={clsx('mijnservices-message__attachment', attachment.className)}
@@ -93,4 +93,4 @@ export const Message = ({
   );
 };
 
-export default Message;
+export default ChatMessage;

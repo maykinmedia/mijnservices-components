@@ -21,7 +21,7 @@ const emptyTokens = (node: TokenTree): TokenTree =>
     Object.entries(node).map(([key, value]) => [key, isToken(value) ? {} : emptyTokens(value)]),
   ) as TokenTree;
 
-// Alle tokens als CSS custom properties, bijv. "--mijnservices-messages-header-padding-block-end: <length>;"
+// Alle tokens als CSS custom properties, bijv. "--mijnservices-chat-dialog-header-padding-block-end: <length>;"
 const cssLines = (node: TokenTree, prefix: string): string[] =>
   Object.entries(node).flatMap(([key, value]) =>
     isToken(value)
