@@ -4,8 +4,8 @@ import './denhaag-comparison-theme.css';
 const preview: Preview = {
   tags: ['autodocs'],
   decorators: [
-    (Story) => (
-      <div style={{ maxInlineSize: '600px', padding: '2rem' }}>
+    (Story, context) => (
+      <div style={{ maxInlineSize: context.parameters.maxInlineSize ?? '600px', padding: '2rem' }}>
         <Story />
       </div>
     ),

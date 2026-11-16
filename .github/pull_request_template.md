@@ -12,8 +12,10 @@
 
 <!-- Remove if not applicable -->
 
-- [ ] Bumped version number in both `package.json` and in `package-lock.json` (can also be done after merge with `npm version ...`)
+- [ ] IF a component changes: add changeset by running `pnpm changeset`
+- [ ] After merge: run `pnpm changeset version` and push git Tag to publish to NPM
 
 <!-- After merging: publish the package to NPM by creating/pushing a Tag with exact same version name;
 visible in https://www.npmjs.com/package/@mijn-services/mijnservices-components?activeTab=versions,
-Tag visible in https://github.com/maykinmedia/mijnservices-components/tags -->
+Tag visible in https://github.com/maykinmedia/mijnservices-components/tags ---
+so if none of the components change but only the monorepo itself, no version update is needed.-->
