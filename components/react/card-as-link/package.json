@@ -3,6 +3,14 @@
   "version": "0.2.0",
   "description": "React CardAsLink component for the MijnServices component library",
   "license": "EUPL-1.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maykinmedia/mijnservices-components",
+    "directory": "components/react/card-as-link"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Maykin Media",
   "type": "module",
   "main": "./dist/card-as-link.cjs",
