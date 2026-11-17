@@ -1,0 +1,145 @@
+@use "mixins" as *;
+
+.mijnservices-messages {
+  background-color: var(--mijnservices-chat-conversation-background-color);
+  border-color: var(--mijnservices-chat-conversation-border-color);
+  border-radius: var(--mijnservices-chat-conversation-border-radius);
+  border-style: var(--mijnservices-chat-conversation-border-style);
+  border-width: var(--mijnservices-chat-conversation-border-width);
+  color: var(--mijnservices-chat-conversation-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    background-color: var(--mijnservices-chat-conversation-header-background-color);
+    border-block-end-color: var(--mijnservices-chat-conversation-header-border-color);
+    border-block-end-style: var(--mijnservices-chat-conversation-header-border-style);
+    border-block-end-width: var(--mijnservices-chat-conversation-header-border-width);
+    column-gap: var(--mijnservices-chat-conversation-header-column-gap);
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block-end: var(--mijnservices-chat-conversation-header-padding-block-end);
+    padding-block-start: var(--mijnservices-chat-conversation-header-padding-block-start);
+    padding-inline-end: var(--mijnservices-chat-conversation-header-padding-inline-end);
+    padding-inline-start: var(--mijnservices-chat-conversation-header-padding-inline-start);
+    row-gap: var(--mijnservices-chat-conversation-header-row-gap);
+
+    // Mobiel: alles onder elkaar
+    @include mobile {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  // Titel, datum en zaaknummer zijn NLDS Heading en Paragraph: hun lettertype komt uit de --nl-heading-* en --nl-paragraph-* tokens.
+  // Met .nl-heading/.nl-paragraph erbij wint deze margin van die van NLDS, ongeacht de volgorde van de CSS.
+  &__title.nl-heading {
+    margin-block-end: var(--mijnservices-chat-conversation-title-margin-block-end);
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+  }
+
+  &__meta.nl-paragraph,
+  &__case-number.nl-paragraph {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    max-block-size: var(--mijnservices-chat-conversation-body-max-block-size);
+    min-block-size: 0;
+    overflow-y: auto;
+    padding-block-end: var(--mijnservices-chat-conversation-body-padding-block-end);
+    padding-block-start: var(--mijnservices-chat-conversation-body-padding-block-start);
+    padding-inline-end: var(--mijnservices-chat-conversation-body-padding-inline-end);
+    padding-inline-start: var(--mijnservices-chat-conversation-body-padding-inline-start);
+
+    &:focus-visible {
+      outline-color: var(--mijnservices-chat-conversation-focus-outline-color);
+      outline-offset: -2px;
+      outline-style: solid;
+      outline-width: var(--mijnservices-chat-conversation-focus-outline-width);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mijnservices-chat-conversation-list-gap);
+    list-style: none;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    padding-block-end: 0;
+    padding-block-start: 0;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* "Nieuw bericht" scheidingslijn */
+  &__divider {
+    align-items: center;
+    display: flex;
+    gap: var(--mijnservices-chat-conversation-divider-gap);
+    margin-block-end: var(--mijnservices-chat-conversation-divider-margin-block-end);
+    margin-block-start: var(--mijnservices-chat-conversation-divider-margin-block-start);
+    margin-inline-end: var(--mijnservices-chat-conversation-divider-margin-inline-end);
+    margin-inline-start: var(--mijnservices-chat-conversation-divider-margin-inline-start);
+
+    &::before,
+    &::after {
+      border-block-start-color: var(--mijnservices-chat-conversation-divider-border-color);
+      border-block-start-style: var(--mijnservices-chat-conversation-divider-border-style);
+      border-block-start-width: var(--mijnservices-chat-conversation-divider-border-width);
+      content: "";
+      flex: 1 1 auto;
+    }
+  }
+
+  &__divider-label {
+    background-color: var(--mijnservices-chat-conversation-divider-label-background-color);
+    border-radius: var(--mijnservices-chat-conversation-divider-label-border-radius);
+    color: var(--mijnservices-chat-conversation-divider-label-color);
+    font-family: var(--mijnservices-chat-conversation-divider-label-font-family);
+    font-size: var(--mijnservices-chat-conversation-divider-label-font-size);
+    font-weight: var(--mijnservices-chat-conversation-divider-label-font-weight);
+    line-height: var(--mijnservices-chat-conversation-divider-label-line-height);
+    padding-block-end: var(--mijnservices-chat-conversation-divider-label-padding-block-end);
+    padding-block-start: var(--mijnservices-chat-conversation-divider-label-padding-block-start);
+    padding-inline-end: var(--mijnservices-chat-conversation-divider-label-padding-inline-end);
+    padding-inline-start: var(--mijnservices-chat-conversation-divider-label-padding-inline-start);
+    white-space: nowrap;
+  }
+
+  &__form {
+    border-block-start-color: var(--mijnservices-chat-conversation-form-border-color);
+    border-block-start-style: var(--mijnservices-chat-conversation-form-border-style);
+    border-block-start-width: var(--mijnservices-chat-conversation-form-border-width);
+    flex-shrink: 0;
+    padding-block-end: var(--mijnservices-chat-conversation-form-padding-block-end);
+    padding-block-start: var(--mijnservices-chat-conversation-form-padding-block-start);
+    padding-inline-end: var(--mijnservices-chat-conversation-form-padding-inline-end);
+    padding-inline-start: var(--mijnservices-chat-conversation-form-padding-inline-start);
+  }
+}
+
+/* utility */
+
+// De screen-reader-only stijl
+.mijnservices-messages__visually-hidden {
+  @include visually-hidden;
+}
