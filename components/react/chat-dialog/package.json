@@ -33,6 +33,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@mijnservices/chat-message": "workspace:*",
     "@nl-design-system-candidate/button-react": "^1.1.0",
     "@nl-design-system-candidate/heading-react": "^1.1.8",
     "@nl-design-system-candidate/paragraph-react": "^2.2.3",

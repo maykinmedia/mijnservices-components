@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { userEvent } from 'storybook/test';
 import { Button } from '@nl-design-system-candidate/button-react';
-import { ChatDialog, ChatDialogItem, ChatMessage, ChatMessageText, ChatMessageForm } from './index';
+import { ChatMessage, ChatMessageText } from '@mijnservices/chat-message';
+import { ChatDialog, ChatDialogItem, ChatMessageForm } from './index';
 
 // Inline thumbnail so the story works offline
 const thumbnail =

@@ -9,19 +9,19 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-// Een token is een object met "$type"; al het andere is een groep (component, element of variant)
+// A token has "$type"; anything else is a group (component, element or variant)
 type TokenTree = { [key: string]: TokenTree | Token };
 type Token = { $type: string; $extensions: { 'nl.nldesignsystem.css-property-syntax': string } };
 
 const isToken = (node: TokenTree | Token): node is Token => '$type' in node;
 
-// tokens.json zonder metadata: elk token wordt {}, zoals NLDS het in de documentatie toont
+// tokens.json without metadata: each token becomes {}, as in the NLDS docs
 const emptyTokens = (node: TokenTree): TokenTree =>
   Object.fromEntries(
     Object.entries(node).map(([key, value]) => [key, isToken(value) ? {} : emptyTokens(value)]),
   ) as TokenTree;
 
-// Alle tokens als CSS custom properties, bijv. "--mijn-chat-dialog-header-padding-block-end: <length>;"
+// All tokens as CSS custom properties, e.g. "--mijn-chat-dialog-header-padding-block-end: <length>;"
 const cssLines = (node: TokenTree, prefix: string): string[] =>
   Object.entries(node).flatMap(([key, value]) =>
     isToken(value)
@@ -108,6 +108,9 @@ export const Tokens: Story = {
           <p>
             The buttons, headings and paragraphs are NL Design System candidate components. Theme them with their own{' '}
             <code>--nl-button-*</code>, <code>--nl-heading-*</code> and <code>--nl-paragraph-*</code> tokens.
+          </p>
+          <p>
+            Messages and attachments use the tokens of <code>@mijnservices/chat-message</code>.
           </p>
         </div>
         <CopyButton text={tokensJson} label="Copy JSON" />

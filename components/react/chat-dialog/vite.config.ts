@@ -13,8 +13,8 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rolldownOptions: {
-      // React blijft peer dependency, NLDS-componenten worden door project zelf geïnstalleerd: niet meebundelen
-      external: ['react', 'react-dom', 'react/jsx-runtime', /^@nl-design-system-candidate\//],
+      // Don't bundle React (peer dependency), NLDS and MijnServices packages (dependencies)
+      external: ['react', 'react-dom', 'react/jsx-runtime', /^@nl-design-system-candidate\//, /^@mijnservices\//],
     },
     cssCodeSplit: false,
   },
