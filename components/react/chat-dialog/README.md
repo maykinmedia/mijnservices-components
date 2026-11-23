@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@mijnservices/chat-dialog)](https://www.npmjs.com/package/@mijnservices/chat-dialog)
 
-A chat conversation component, that contains individual chat bubbles (single message). Part of [mijnservices-components](https://github.com/maykinmedia/mijnservices-components), built on NL Design System architecture.
+A chat conversation component: header, message list and optional form. The messages are [`@mijnservices/chat-message`](https://www.npmjs.com/package/@mijnservices/chat-message) components. Part of [mijnservices-components](https://github.com/maykinmedia/mijnservices-components), built on NL Design System architecture.
 
 ## Install
 
@@ -10,14 +10,20 @@ A chat conversation component, that contains individual chat bubbles (single mes
 npm install @mijnservices/chat-dialog
 ```
 
+`@mijnservices/chat-message` is installed automatically as a dependency.
+
 ## Accessibility
 
 This chat dialog component should work the same for slow chats as for live/quick chats, with the following WCAG aspects to consider:
 
 ### `.mijn-chat-dialog` (parent component)
 
-- **Chat history container:** `.mijn-chat-dialog__body` has `role="log"`.
-  - Do **not** use `role="alert"` or `aria-live="assertive"` here: those interrupt the user for every new message. `role="log"` already announces new messages politely.
+- **Chat history container:** `.mijn-chat-dialog__body` has `role="region"` with an `aria-label` and `tabindex="0"`, so keyboard users can scroll it.
+  - It does **not** use `role="log"`: a log announces every change, also when the whole list is replaced (e.g. by HTMX), and it ties the messages to the container.
+- **New messages:** announced via the `announcement` prop, in a visually hidden `role="status"` element (polite).
+  - Only set `announcement` when a new message has arrived, not on every refresh or poll.
+  - The `role="status"` element is always in the DOM. When content is swapped (e.g. HTMX), swap only the message list, not the whole dialog, so the status element stays in place.
+  - Do **not** use `role="alert"` or `aria-live="assertive"`: those interrupt the user for every new message.
 - **Chat history list structure:** inside `.mijn-chat-dialog__body`, messages are an ordered list: `<ol class="mijn-chat-dialog__list">` with one `<li class="mijn-chat-dialog__item">` per message.
 - **"Nieuw bericht" divider:** a `<div>` with plain text, not an `<hr>` or `role="separator"`: those cannot contain readable text. The lines are CSS.
 - **Refresh behaviour:** if the chat does not refresh live, show a visible text such as "Reload the page to see new messages".
@@ -25,18 +31,12 @@ This chat dialog component should work the same for slow chats as for live/quick
 
 ### `.mijn-chat-message` (single message bubble)
 
-- **Who, when, what, status:** every message exposes these four things as **text** in the accessibility tree, so never only through colour or alignment ("niet enkel aangeven met kleur of alignment"):
-  - **Who:** `.mijn-chat-message__author` (sender), e.g. "Bericht van Gemeente Voorbeeld".
-  - **When:** `.mijn-chat-message__time`, a `<time datetime="…">` element.
-  - **What:** `.mijn-chat-message__body`, the message content.
-  - **Status:** `.mijn-chat-message__status`, e.g. "Sending", "Sent", "Failed" (only on the user's own messages).
-- **Accessible name:** the `<article class="mijn-chat-message">` is labelled by sender + time via `aria-labelledby`.
-- **Attachments:** the thumbnail has `alt=""` because the file name is shown next to it.
+See the README of [`@mijnservices/chat-message`](https://www.npmjs.com/package/@mijnservices/chat-message).
 
 ### `.mijn-chat-message-form` (input form, part of `.mijn-chat-dialog`)
 
-- **Sending status:** `.mijn-chat-message-form__status` has `role="status"`, e.g. "Sending message…" / "ChatMessage sent", is now optional and may not be needed.
-- **Errors:** `.mijn-chat-message-form__error` has `role="alert"`, e.g. "ChatMessage could not be sent".
+- **Sending status:** `.mijn-chat-message-form__status` has `role="status"`, e.g. "Sending message…" / "Message sent", is now optional and may not be needed.
+- **Errors:** `.mijn-chat-message-form__error` has `role="alert"`, e.g. "Message could not be sent".
 - **Live regions in the DOM:** `.mijn-chat-message-form__error` and `.mijn-chat-message-form__status` are always present in the HTML, also when they are empty. Screen readers only announce text that is added to a live region that already exists in the DOM on load.
 - **Attachment button:** an icon-only NLDS Button with a label for screen readers. The real file input is hidden; the button opens it, so there is only one tab stop.
 - **Link to the chat (optional):** the textarea and submit button use `aria-controls` with the id of the message list. Inside `ChatDialog` this is done automatically. Note: only JAWS supports this.
@@ -47,7 +47,9 @@ This chat dialog component should work the same for slow chats as for live/quick
 ### React
 
 ```tsx
-import { ChatDialog, ChatDialogItem, ChatMessage, ChatMessageText, ChatMessageForm } from "@mijnservices/chat-dialog";
+import { ChatDialog, ChatDialogItem, ChatMessageForm } from "@mijnservices/chat-dialog";
+import { ChatMessage, ChatMessageText } from "@mijnservices/chat-message";
+import "@mijnservices/chat-message/index.css";
 import "@mijnservices/chat-dialog/index.css";
 
 <ChatDialog
@@ -58,6 +60,7 @@ import "@mijnservices/chat-dialog/index.css";
     </>
   }
   caseNumber="Zaaknummer: 4503-2026"
+  announcement={hasNewMessage ? "Nieuw bericht van Gemeente Voorbeeld" : undefined}
   form={
     <ChatMessageForm action="/inbox/" method="post" encType="multipart/form-data" accept=".pdf,.png,.jpg">
       <input type="hidden" name="csrfmiddlewaretoken" value="…" />
@@ -74,16 +77,7 @@ import "@mijnservices/chat-dialog/index.css";
       variant="organization"
       author="Gemeente Voorbeeld"
       dateTime="2026-07-13T09:30"
-      time="13/07/2026 - 09:30"
-      attachments={[
-        {
-          href: "/files/brief.pdf",
-          fileName: "brief.pdf",
-          fileType: "pdf",
-          fileSize: "228 kB",
-          fileDate: "13-07-2026",
-        },
-      ]}
+      time="13-07-2026 - 09:30"
     >
       <ChatMessageText>First paragraph.</ChatMessageText>
       <ChatMessageText>Second paragraph.</ChatMessageText>
@@ -92,61 +86,37 @@ import "@mijnservices/chat-dialog/index.css";
 </ChatDialog>;
 ```
 
+Import the CSS of both packages: the JavaScript does not load the CSS itself.
+
 The component is "dumb": it only displays what it receives. Sending, refreshing, validation and deciding which message is new are done by the backend or the project.
 
 ## Components and props
 
-All visible texts have a Dutch default and can be changed with a prop. All components also accept `className` and the regular HTML attributes of their root element.
+All texts have a Dutch default and can be changed with a prop. All components also accept `className` and the regular HTML attributes of their root element.
 
 ### `ChatDialog`
 
-The whole conversation: header, message list (`role="log"`) and optional form.
+The whole conversation: header, message list (`role="region"`), announcement (`role="status"`) and optional form.
 
-| Prop           | Type                    | Default       | Description                                                                       |
-| -------------- | ----------------------- | ------------- | --------------------------------------------------------------------------------- |
-| `title`        | `ReactNode`             | –             | Title of the conversation (NLDS Heading). Required.                               |
-| `headingLevel` | `2 \| 3 \| 4 \| 5 \| 6` | `2`           | Heading level of the title.                                                       |
-| `meta`         | `ReactNode`             | –             | Line below the title, e.g. the start date.                                        |
-| `caseNumber`   | `ReactNode`             | –             | Case number, shown next to the title.                                             |
-| `logLabel`     | `string`                | `"Berichten"` | Accessible name of the message list.                                              |
-| `form`         | `ReactNode`             | –             | Slot for the form, usually `<ChatMessageForm />`. Leave out for a read-only chat. |
-| `children`     | `ReactNode`             | –             | The messages: `<ChatDialogItem>` elements.                                        |
+| Prop            | Type                    | Default       | Description                                                                        |
+| --------------- | ----------------------- | ------------- | ---------------------------------------------------------------------------------- |
+| `title`         | `ReactNode`             | –             | Title of the conversation (NLDS Heading). Required.                                |
+| `headingLevel`  | `2 \| 3 \| 4 \| 5 \| 6` | `2`           | Heading level of the title.                                                        |
+| `meta`          | `ReactNode`             | –             | Line below the title, e.g. the start date.                                         |
+| `caseNumber`    | `ReactNode`             | –             | Case number, shown next to the title.                                              |
+| `messagesLabel` | `string`                | `"Berichten"` | Accessible name of the message list.                                               |
+| `announcement`  | `string`                | –             | Screen reader announcement (`role="status"`). Only set when a new message arrives. |
+| `form`          | `ReactNode`             | –             | Slot for the form, usually `<ChatMessageForm />`. Leave out for a read-only chat.  |
+| `children`      | `ReactNode`             | –             | The messages: `<ChatDialogItem>` elements.                                         |
 
 ### `ChatDialogItem`
 
-One `<li>` in the message list.
+One `<li>` in the message list, usually containing a `<ChatMessage>`.
 
 | Prop       | Type      | Default           | Description                                                               |
 | ---------- | --------- | ----------------- | ------------------------------------------------------------------------- |
 | `isNew`    | `boolean` | `false`           | Shows the "Nieuw bericht" divider above this message. Set by the backend. |
 | `newLabel` | `string`  | `"Nieuw bericht"` | Text in the divider.                                                      |
-
-### `ChatMessage`
-
-One chat bubble (`<article>`). Plain text as `children` becomes a paragraph automatically; use `ChatMessageText` (NLDS Paragraph) for multiple paragraphs.
-
-| Prop           | Type                           | Default                             | Description                                                |
-| -------------- | ------------------------------ | ----------------------------------- | ---------------------------------------------------------- |
-| `variant`      | `"resident" \| "organization"` | –                                   | Resident (right) or organization (left). Required.         |
-| `author`       | `ReactNode`                    | –                                   | Sender, e.g. "Jij" or "Gemeente Voorbeeld". Required.      |
-| `dateTime`     | `string`                       | –                                   | Machine-readable date for `<time datetime>`. Required.     |
-| `time`         | `ReactNode`                    | –                                   | Readable date and time. Required.                          |
-| `authorPrefix` | `string`                       | `"Bericht van"`                     | Screen reader text before the sender.                      |
-| `timePrefix`   | `string`                       | `"Verzonden op"` / `"Ontvangen op"` | Screen reader text before the time (depends on `variant`). |
-| `status`       | `string`                       | –                                   | Screen reader status, e.g. "Status: verzonden".            |
-| `attachments`  | `ChatMessageAttachmentProps[]` | –                                   | Attachments below the text.                                |
-
-### `ChatMessageAttachment`
-
-An attachment: thumbnail + "name (type, size, date)". With `href` it is a link (sent message), without `href` a preview (selected file in the form).
-
-| Prop                               | Type     | Default     | Description                                                                                        |
-| ---------------------------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------- |
-| `fileName`                         | `string` | –           | Required.                                                                                          |
-| `fileType`, `fileSize`, `fileDate` | `string` | –           | Readable texts, e.g. "png", "228 kB", "14-07-2026". Not formatted by the component.                |
-| `thumbnailSrc`                     | `string` | –           | Without a thumbnail (e.g. a pdf) an empty grey square is shown.                                    |
-| `href`                             | `string` | –           | Link to the file. Whether it opens or downloads is decided by the backend (`Content-Disposition`). |
-| `label`                            | `string` | `"Bijlage"` | Screen reader text before the file name.                                                           |
 
 ### `ChatMessageForm`
 
@@ -161,12 +131,15 @@ Textarea, attachment button, preview of the selected file, send button, error an
 | `submitLabel`                   | `string`                       | `"Versturen"`          | Text of the send button.                                                                      |
 | `uploadLabel`                   | `string`                       | `"Bijlage toevoegen"`  | Text of the attachment button (screen readers only).                                          |
 | `selectedFileLabel`             | `string`                       | `"Gekozen bijlage"`    | Screen reader text before the selected file.                                                  |
+| `locale`                        | `string`                       | `"nl-NL"`              | Locale for the date and size of the selected file, e.g. `"en-GB"`.                            |
 | `textareaName`, `fileInputName` | `string`                       | `"content"`, `"file"`  | `name` of the textarea and file input.                                                        |
 | `uploadIcon`, `submitIcon`      | `ReactNode`                    | built-in SVG icons     | Own icons, e.g. Font Awesome or Material UI. Give them `aria-hidden="true"`.                  |
-| `logId`                         | `string`                       | from `ChatDialog`      | Id of the message list for `aria-controls`. Automatic inside `ChatDialog`.                    |
+| `messagesId`                    | `string`                       | from `ChatDialog`      | Id of the message list for `aria-controls`. Automatic inside `ChatDialog`.                    |
 | `textareaProps`                 | `object`                       | –                      | Extra attributes for the textarea, e.g. `value` and `onChange`.                               |
 | `onFileChange`                  | `(file: File \| null) => void` | –                      | Called when the user selects a file.                                                          |
 | `children`                      | `ReactNode`                    | –                      | Extra fields, e.g. the csrf token.                                                            |
+
+`ChatMessage`, `ChatMessageText` and `ChatMessageAttachment`: see the README of [`@mijnservices/chat-message`](https://www.npmjs.com/package/@mijnservices/chat-message).
 
 ## Code Structure
 
@@ -176,7 +149,7 @@ We did not add fallback values, so not yet incorporated: "Gebruik basis tokens a
 NLDS requirement: always combine font-size with line-height.
 NLDS requirement: always combine color with background-color for contrast.
 HTML: we use the NLDS candidate components `@nl-design-system-candidate/button-react`, `heading-react` and `paragraph-react` as dependencies. Their CSS is imported by the components, so your bundler must support CSS imports.
-SCSS: one partial per BEM block (`_chat-dialog.scss`, `_chat-message.scss`, `_chat-message-attachment.scss`, `_chat-message-form.scss`). Each React component imports the styles itself.
+SCSS: one partial per BEM block (`_chat-dialog.scss`, `_chat-message-form.scss`). Each React component imports the styles itself. The utility class `.mijn-visually-hidden` comes from `@mijnservices/chat-message`.
 
 ## Theming
 
@@ -184,6 +157,7 @@ Theming can be done by overwriting the design-token values.
 
 - The npm package ships empty tokens: without a theme the component is unstyled.
 - All component tokens are listed in `tokens.json` (without `$value`) and on the "Design Tokens" page in Storybook, with a JSON and CSS template to copy.
+- Messages and attachments use the tokens of `@mijnservices/chat-message`.
 - Buttons, headings and paragraphs are NLDS candidate components: theme them with their own `--nl-button-*`, `--nl-heading-*` and `--nl-paragraph-*` tokens.
 - The values used in our Storybook live in `.storybook-react/chat-dialog-theme.css` (not published).
 

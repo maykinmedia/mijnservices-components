@@ -1,0 +1,8 @@
+@use "mixins" as *;
+@use "chat-message";
+@use "chat-message-attachment";
+
+// Utility
+.mijn-visually-hidden {
+  @include visually-hidden;
+}

@@ -11,7 +11,7 @@ import React, {
 import clsx from 'clsx';
 import { Button } from '@nl-design-system-candidate/button-react';
 import '@nl-design-system-candidate/button-react/css';
-import { ChatMessageAttachment } from './ChatMessageAttachment';
+import { ChatMessageAttachment } from '@mijnservices/chat-message';
 import { useChatDialogContext } from './ChatDialog';
 import './styles/index.scss';
 
@@ -137,6 +137,8 @@ export const ChatMessageForm = ({
     };
   }, [selectedFile]);
 
+  // TODO: single file for now; multiple upload is not decided yet.
+  // If needed: add a `multiple` prop and a File[] callback, and keep onFileChange (non-breaking).
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0] ?? null;
 

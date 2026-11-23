@@ -135,8 +135,3 @@
     padding-inline-start: var(--mijn-chat-dialog-form-padding-inline-start);
   }
 }
-
-// Utility
-.mijn-visually-hidden {
-  @include visually-hidden;
-}
